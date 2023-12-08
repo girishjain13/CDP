@@ -1,3 +1,4 @@
+
 // Initialize the engage variable
 var engage = undefined;
 
@@ -27,7 +28,7 @@ var event = {
     channel: "WEB",
     language: "EN",
     currency: "USD",
-    page: "<page_PLACEHOLDER>"
+    page: "/index"
 };
 
 // Send VIEW event
