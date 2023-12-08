@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,6 +44,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <header>
@@ -58,28 +60,55 @@
   </header>
 
   <main>
- <section id="featured-products">
-            <h2>Featured Products</h2>
-            <h2>Phone Listing Page</h2>
-            <!-- Display list of phones with links to individual detail pages -->
-            <ul>
-                <li>
-                    <a href="iphone 13 Product Detail Page.html">
-                        <img src="https://th.bing.com/th/id/OIP.Q6FT8punGZGSklG15Di_RgHaHa?rs=1&pid=ImgDetMain" alt="Phone Image">
-                  
-                    </a>
-      iPhone 13
-                </li>
-                <li>
-                    <a href="galaxyS21.html?id=2">
-                        <img src="https://th.bing.com/th/id/OIP.PBzTBrUIdJSCa03UDJxW0AAAAA?w=474&h=474&rs=1&pid=ImgDetMain" alt="Phone Image">
-                       
-                    </a>
- Samsung Galaxy S21
-                </li>
-                <!-- Add more phones as needed -->
-            </ul>
-        </section>
+    <script>import { engage } from "./engage.js";
+      // ...
+
+      useEffect(() => {
+        if (engage !== undefined) {
+          sendPageViewEvent();
+        };
+      }, []);
+
+      const sendPageViewEvent = async () => {
+        const eventData = {
+          channel: "WEB",
+          currency: "EUR",
+          pointOfSale: "myretailsite/ireland",
+          language: "EN",
+          page: "home",
+          pageVariantId: "351"
+        };
+
+        const extensionData = {
+          customKey: "customValue"
+        };
+
+        await engage.pageView(eventData, extensionData);
+      };</script>
+
+    <section id="featured-products">
+      <h2>Featured Products</h2>
+      <h2>Phone Listing Page</h2>
+      <!-- Display list of phones with links to individual detail pages -->
+      <ul>
+        <li>
+          <a href="iphone 13 Product Detail Page.html">
+            <img src="https://th.bing.com/th/id/OIP.Q6FT8punGZGSklG15Di_RgHaHa?rs=1&pid=ImgDetMain" alt="Phone Image">
+
+          </a>
+          iPhone 13
+        </li>
+        <li>
+          <a href="galaxyS21.html?id=2">
+            <img src="https://th.bing.com/th/id/OIP.PBzTBrUIdJSCa03UDJxW0AAAAA?w=474&h=474&rs=1&pid=ImgDetMain"
+              alt="Phone Image">
+
+          </a>
+          Samsung Galaxy S21
+        </li>
+        <!-- Add more phones as needed -->
+      </ul>
+    </section>
 
 
   </main>
@@ -89,4 +118,5 @@
   </footer>
 
 </body>
+
 </html>
