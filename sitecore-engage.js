@@ -14,9 +14,9 @@ x.parentNode.insertBefore(s, x);
 s.addEventListener("load", async () => {
     var settings = {
         clientKey: "sndbxus06p9cxhoqoiowkr1sbq5casz3",
-        targetURL: "https://api-engage-us.sitecorecloud.io/v1.2",
+        targetURL: "https://api-engage-us.sitecorecloud.io",
         pointOfSale: "MobileRetail",
-        cookieDomain: "https://gjsitecorecdp.vercel.app/index.html",
+        cookieDomain: "https://gjsitecorecdp.vercel.app",
         cookieExpiryDays: 365,
         forceServerCookieMode: false,
         includeUTMParameters: true,
