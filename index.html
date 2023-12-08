@@ -59,14 +59,23 @@
     </nav>
   </header>
   <script>
+    import { engage } from "sitecore-engage.js";
+    // ...
+
+    useEffect(() => {
+      if (engage !== undefined) {
+        sendPageViewEvent();
+      };
+    }, []);
+
     const sendPageViewEvent = async () => {
       const eventData = {
         channel: "WEB",
         currency: "USD",
         pointOfSale: "MobileRetail",
         language: "EN",
-        page: "index",
-
+        page: "Index",
+        pageVariantId: "351"
       };
 
       const extensionData = {
@@ -75,7 +84,6 @@
 
       await engage.pageView(eventData, extensionData);
     };
-
   </script>
 
   <main>

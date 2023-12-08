@@ -23,32 +23,8 @@ s.addEventListener("load", async () => {
         webPersonalization: false /* boolean or object. See Settings object for all options. Default: false */
     };
     engage = await window.Engage.init(settings);
+          
     
-        
-      engage.push(function () {
-
-            var viewEvent = {
-                "browser_id": engage.getID(),
-                "channel": "WEB",
-                "type": "VIEW",
-                "language": "EN",
-                "currency": "USD",
-                "page": window.location.pathname,
-                "pos": "MobileRetail",
-              "sessionData" :{
-            "deep_link" : window.location.pathname,
-            "is_logged_in" :false,
-            "assistance" :false
-                }
-
-            };
-            //Add UTM params
-            viewEvent = engage.addUTMParams(viewEvent);
-            // Invoke event create
-            // (<event msg>, <callback function>, <format>)
-            engage.eventCreate(viewEvent, function (data) { }, 'json');
-        });
-
     
 
 // For testing and debugging purposes only
