@@ -44,10 +44,10 @@ s.addEventListener("load", async () => {
 
             };
             //Add UTM params
-            viewEvent = Boxever.addUTMParams(viewEvent);
+            viewEvent = engage.addUTMParams(viewEvent);
             // Invoke event create
             // (<event msg>, <callback function>, <format>)
-            Boxever.eventCreate(viewEvent, function (data) { }, 'json');
+            engage.eventCreate(viewEvent, function (data) { }, 'json');
         });
 
     
