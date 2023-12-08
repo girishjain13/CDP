@@ -41,11 +41,6 @@ console.log("Copy-paste the following line into Sitecore CDP > Guests > Search f
     
 // ...
 
-useEffect(() => {
-  if (engage !== undefined) {
-      sendPageViewEvent();
-  };
-}, []);
 
 const sendPageViewEvent = async () => {
   const eventData = {
