@@ -37,7 +37,7 @@ s.addEventListener("load", async () => {
                 "page": window.location.pathname,
                 "pos": "MobileRetail",
               "sessionData" :{
-            "deep_link" : @Html.Raw(pageURL),
+            "deep_link" : window.location.pathname,
             "is_logged_in" :false,
             "assistance" :false
                 }
