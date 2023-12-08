@@ -32,11 +32,37 @@ var event = {
 };
 
 // Send VIEW event
-engage.pageView(event);
+    engage.pageView(event);
+    
 
 // For testing and debugging purposes only
 console.log("Copy-paste the following line into Sitecore CDP > Guests > Search field:");
-console.log("bid:", engage.getBrowserId());
+    console.log("bid:", engage.getBrowserId());
+    import { engage } from "./engage.js";
+// ...
+
+useEffect(() => {
+  if (engage !== undefined) {
+      sendPageViewEvent();
+  };
+}, []);
+
+const sendPageViewEvent = async () => {
+  const eventData = {
+    channel: "WEB",
+    currency: "USD",
+    pointOfSale: "MobileRetail",
+    language: "EN",
+    page: "index",
+    pageVariantId: "351"
+  };
+
+  const extensionData = {
+    customKey: "customValue"
+  };
+
+  await engage.pageView(eventData, extensionData);
+};
     
     // Send a VIEW event
     // ...
