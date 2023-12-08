@@ -24,7 +24,6 @@ s.addEventListener("load", async () => {
     };
     engage = await window.Engage.init(settings);
     
-            var pageURL = string.Format("'{0}'", "/" + ViewBag.Title);
         
       engage.push(function () {
 
