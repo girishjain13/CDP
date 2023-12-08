@@ -23,16 +23,7 @@ s.addEventListener("load", async () => {
         webPersonalization: false /* boolean or object. See Settings object for all options. Default: false */
     };
     engage = await window.Engage.init(settings);
-    // VIEW event object
-var event = {
-    channel: "WEB",
-    language: "EN",
-    currency: "USD",
-    page: "/index"
-};
 
-// Send VIEW event
-    engage.pageView(event);
     
 
 // For testing and debugging purposes only
