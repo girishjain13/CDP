@@ -23,6 +23,32 @@ s.addEventListener("load", async () => {
         webPersonalization: false /* boolean or object. See Settings object for all options. Default: false */
     };
     engage = await window.Engage.init(settings);
+    
+            var pageURL = string.Format("'{0}'", "/" + ViewBag.Title);
+        
+      engage.push(function () {
+
+            var viewEvent = {
+                "browser_id": Boxever.getID(),
+                "channel": "WEB",
+                "type": "VIEW",
+                "language": "EN",
+                "currency": "USD",
+                "page": @Html.Raw(pageURL),
+                "pos": "MobileRetail",
+              "sessionData" :{
+            "deep_link" : @Html.Raw(pageURL),
+            "is_logged_in" :false,
+            "assistance" :false
+                }
+
+            };
+            //Add UTM params
+            viewEvent = Boxever.addUTMParams(viewEvent);
+            // Invoke event create
+            // (<event msg>, <callback function>, <format>)
+            Boxever.eventCreate(viewEvent, function (data) { }, 'json');
+        });
 
     
 
