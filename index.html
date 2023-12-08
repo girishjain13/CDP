@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,6 +44,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <header>
@@ -56,28 +58,60 @@
       <a href="contact.html">Contact</a>
     </nav>
   </header>
+  <script>
+    const sendPageViewEvent = async () => {
+      const eventData = {
+        channel: "WEB",
+        currency: "USD",
+        pointOfSale: "MobileRetail",
+        language: "EN",
+        page: "index",
+        pageVariantId: "351"
+      };
+
+      const extensionData = {
+        customKey: "customValue"
+      };
+
+      await engage.pageView(eventData, extensionData);
+    };
+
+  </script>
 
   <main>
-  <section id="featured-products">
-            <h2>Featured Products</h2>
-            <!-- Display featured products here -->
-        </section>
-<body>
- <script src="sitecore-engage.js"></script>
-</body>
+    <section id="featured-products">
+      <h2>Featured Products</h2>
+      <!-- Display featured products here -->
+    </section>
 
-        <section id="about-us">
-            <h2>Welcome to our mobile retailing haven – where innovation meets convenience! Dive into a seamless shopping experience on our cutting-edge mobile retailing website. Discover a curated collection of the latest smartphones, accessories, and gadgets that redefine the way you connect with the world.
+    <body>
+      <script src="sitecore-engage.js"></script>
+    </body>
 
-Our home page is a gateway to a world of possibilities, showcasing sleek designs, powerful functionalities, and irresistible deals. Immerse yourself in the vibrant visuals that reflect the dynamic nature of mobile technology. Navigate effortlessly through intuitive categories that cater to every tech enthusiast's needs.
+    <section id="about-us">
+      <h2>Welcome to our mobile retailing haven – where innovation meets convenience! Dive into a seamless shopping
+        experience on our cutting-edge mobile retailing website. Discover a curated collection of the latest
+        smartphones, accessories, and gadgets that redefine the way you connect with the world.
 
-Stay ahead of the curve with featured products that embody the epitome of style, performance, and innovation. Our home page is not just a destination; it's a digital storefront where you can explore, compare, and choose the perfect mobile companion that resonates with your lifestyle.
+        Our home page is a gateway to a world of possibilities, showcasing sleek designs, powerful functionalities, and
+        irresistible deals. Immerse yourself in the vibrant visuals that reflect the dynamic nature of mobile
+        technology. Navigate effortlessly through intuitive categories that cater to every tech enthusiast's needs.
 
-Enjoy a user-friendly interface that prioritizes your convenience, allowing you to effortlessly browse, search, and make secure purchases. Benefit from exclusive promotions, limited-time offers, and personalized recommendations tailored just for you.
+        Stay ahead of the curve with featured products that embody the epitome of style, performance, and innovation.
+        Our home page is not just a destination; it's a digital storefront where you can explore, compare, and choose
+        the perfect mobile companion that resonates with your lifestyle.
 
-Whether you're a tech aficionado or a casual shopper, our mobile retailing website is designed to cater to your diverse preferences. With a commitment to excellence and customer satisfaction, we invite you to embark on a journey of technological discovery right from the comfort of your fingertips. Welcome to a world where mobile retailing meets the future – welcome to our home page!</h2>
-            <p>Welcome to Mobile Retailer, your one-stop shop for the latest mobile phones and accessories. We offer a wide range of products to suit your needs.</p>
-        </section>
+        Enjoy a user-friendly interface that prioritizes your convenience, allowing you to effortlessly browse, search,
+        and make secure purchases. Benefit from exclusive promotions, limited-time offers, and personalized
+        recommendations tailored just for you.
+
+        Whether you're a tech aficionado or a casual shopper, our mobile retailing website is designed to cater to your
+        diverse preferences. With a commitment to excellence and customer satisfaction, we invite you to embark on a
+        journey of technological discovery right from the comfort of your fingertips. Welcome to a world where mobile
+        retailing meets the future – welcome to our home page!</h2>
+      <p>Welcome to Mobile Retailer, your one-stop shop for the latest mobile phones and accessories. We offer a wide
+        range of products to suit your needs.</p>
+    </section>
   </main>
 
   <footer>
@@ -85,4 +119,5 @@ Whether you're a tech aficionado or a casual shopper, our mobile retailing websi
   </footer>
 
 </body>
+
 </html>
