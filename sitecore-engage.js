@@ -15,7 +15,7 @@ s.addEventListener("load", async () => {
         clientKey: "sndbxus06p9cxhoqoiowkr1sbq5casz3",
         targetURL: "https://api-engage-us.sitecorecloud.io",
         pointOfSale: "MobileRetail",
-        cookieDomain: "https://cdp-test-site.vercel.app",
+        cookieDomain: "https://gjsitecorecdp.vercel.app",
         cookieExpiryDays: 365,
         forceServerCookieMode: false,
         includeUTMParameters: true,
