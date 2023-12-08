@@ -62,11 +62,6 @@
   <main>
     <script>
 
-      useEffect(() => {
-        if (engage !== undefined) {
-          sendPageViewEvent();
-        };
-      }, []);
 
       const sendPageViewEvent = async () => {
         const eventData = {
