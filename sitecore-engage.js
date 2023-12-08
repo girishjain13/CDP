@@ -38,7 +38,7 @@ var event = {
 // For testing and debugging purposes only
 console.log("Copy-paste the following line into Sitecore CDP > Guests > Search field:");
     console.log("bid:", engage.getBrowserId());
-    import { engage } from "./engage.js";
+    
 // ...
 
 useEffect(() => {
