@@ -29,12 +29,12 @@ s.addEventListener("load", async () => {
       engage.push(function () {
 
             var viewEvent = {
-                "browser_id": Boxever.getID(),
+                "browser_id": engage.getID(),
                 "channel": "WEB",
                 "type": "VIEW",
                 "language": "EN",
                 "currency": "USD",
-                "page": @Html.Raw(pageURL),
+                "page": window.location.pathname,
                 "pos": "MobileRetail",
               "sessionData" :{
             "deep_link" : @Html.Raw(pageURL),
