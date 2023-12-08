@@ -42,23 +42,7 @@ console.log("Copy-paste the following line into Sitecore CDP > Guests > Search f
 // ...
 
 
-const sendPageViewEvent = async () => {
-  const eventData = {
-    channel: "WEB",
-    currency: "USD",
-    pointOfSale: "MobileRetail",
-    language: "EN",
-    page: "index",
-    pageVariantId: "351"
-  };
 
-  const extensionData = {
-    customKey: "customValue"
-  };
-
-  await engage.pageView(eventData, extensionData);
-};
-    
     // Send a VIEW event
     // ...
 });
