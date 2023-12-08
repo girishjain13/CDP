@@ -5,7 +5,7 @@ var engage = undefined;
 var s = document.createElement("script");
 s.type = "text/javascript";
 s.async = true;
-s.src = "https://d1mj578wat5n4o.cloudfront.net/sitecore-engage-v.1.4.2.min.js";
+s.src = "https://d1mj578wat5n4o.cloudfront.net/boxever-1.4.9.min.js";
 var x = document.querySelector("script");
 x.parentNode.insertBefore(s, x);    
 
@@ -13,7 +13,7 @@ x.parentNode.insertBefore(s, x);
 s.addEventListener("load", async () => {
     var settings = {
         clientKey: "sndbxus06p9cxhoqoiowkr1sbq5casz3",
-        targetURL: "https://api-engage-us.sitecorecloud.io",
+        targetURL: "https://api-us.boxever.com/v1.2",
         pointOfSale: "MobileRetail",
         cookieDomain: "https://gjsitecorecdp.vercel.app",
         cookieExpiryDays: 365,
