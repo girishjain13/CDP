@@ -58,32 +58,37 @@
       <a href="contact.html">Contact</a>
     </nav>
   </header>
+  <script src="./sitecore-engage.js"></script>
   <script>
-    import { engage } from "sitecore-engage.js";
-    // ...
-
-    useEffect(() => {
-      if (engage !== undefined) {
+    document.addEventListener('DOMContentLoaded', function () {
+      // Simulate the condition
+      if (typeof engage !== 'undefined') {
+        // Simulate the useEffect body
         sendPageViewEvent();
-      };
-    }, []);
+      }
+    });
 
-    const sendPageViewEvent = async () => {
+    // Your sendPageViewEvent function
+    function sendPageViewEvent() {
       const eventData = {
         channel: "WEB",
-        currency: "USD",
+        currency: "EUR",
         pointOfSale: "MobileRetail",
         language: "EN",
-        page: "Index",
-        pageVariantId: "351"
+        page: "index"
       };
 
       const extensionData = {
         customKey: "customValue"
       };
 
-      await engage.pageView(eventData, extensionData);
-    };
+      // Simulate the engage.pageView function
+      if (typeof engage.pageView === 'function') {
+        engage.pageView(eventData, extensionData);
+      }
+    }
+
+
   </script>
 
   <main>
