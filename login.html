@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,6 +44,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <header>
@@ -56,32 +58,42 @@
       <a href="contact.html">Contact</a>
     </nav>
   </header>
+  <script src="./sitecore-engage.js"></script>
 
-  <main>  <form id="loginForm">
-    <label for="firstName">First Name:</label>
-    <input type="text" id="firstName" required>
-
-    <label for="lastName">Last Name:</label>
-    <input type="text" id="lastName" required>
-
-    <button type="button" onclick="login()">Login</button>
-  </form>
-
+  <!-- Your specific logic for the Home page -->
   <script>
-    function login() {
-      const firstName = document.getElementById('firstName').value;
-      const lastName = document.getElementById('lastName').value;
+    // Call the common function for engage logic
+    engageLogic();
 
-      if (firstName && lastName) {
-        // Perform any additional login logic here
-        alert(`Welcome, ${firstName} ${lastName}! You have successfully logged in.`);
-      } else {
-        alert('Please fill in both first name and last name fields.');
-      }
-    }
+    // Additional Home page-specific code if needed
   </script>
- 
-    
+
+  <main>
+    <form id="loginForm">
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" required>
+
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" required>
+
+      <button type="button" onclick="login()">Login</button>
+    </form>
+
+    <script>
+      function login() {
+        const firstName = document.getElementById('firstName').value;
+        const lastName = document.getElementById('lastName').value;
+
+        if (firstName && lastName) {
+          // Perform any additional login logic here
+          alert(`Welcome, ${firstName} ${lastName}! You have successfully logged in.`);
+        } else {
+          alert('Please fill in both first name and last name fields.');
+        }
+      }
+    </script>
+
+
   </main>
 
   <footer>
@@ -89,4 +101,5 @@
   </footer>
 
 </body>
+
 </html>
