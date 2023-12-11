@@ -38,33 +38,6 @@ function engageLogic() {
         }
     });
 
-    // Your sendPageViewEvent function
-    function sendPageViewEvent() {
-        const eventData = {
-            channel: "WEB",
-            currency: "USD",
-            pointOfSale: "MobileRetail",
-            language: "EN",
-            page: getPageName(), // This will be dynamic based on the page
-            pageVariantId: "351"
-        };
-
-        const extensionData = {
-            customKey: "customValue"
-        };
-
-        // Simulate the engage.pageView function
-        if (typeof engage.pageView === 'function') {
-            engage.pageView(eventData, extensionData);
-        }
-    }
-
-    // Function to get the page name dynamically
-    function getPageName() {
-        // You can customize this logic based on your page names
-        return window.location.pathname.replace('/', ''); // Assuming page names are in the URL path
-    }
-}
 
 
 // For testing and debugging purposes only
