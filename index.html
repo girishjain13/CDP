@@ -70,25 +70,15 @@
 
       <!-- Your JavaScript code -->
       <script>
-        useEffect(() => {
-          if (engage !== undefined) {
-            sendPageViewEvent();
-          };
-        }, []);
-        const sendPageViewEvent = async () => {
-          const eventData = {
-            channel: "WEB",
-            currency: "USD",
-            pointOfSale: "MobileRetail",
-            language: "EN",
-            page: "index",
-            pageVariantId: "351"
-          };
-          const extensionData = {
-            customKey: "customValue"
-          };
-          await engage.pageView(eventData, extensionData);
+        var eventData = {
+          channel: "WEB",
+          language: "EN",
+          currency: "USD",
+          page: "index",
+          pointOfSale: "MobileRetail"
         };
+        // Send a VIEW event
+        engage.pageView(eventData);
 
       </script>
     </body>
