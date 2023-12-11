@@ -70,40 +70,26 @@
 
       <!-- Your JavaScript code -->
       <script>
-        // Simulate the import by including the script first
-        // This assumes that `engage.js` defines the `engage` function globally
-
-        // ...
-
-        // Simulate the useEffect hook
-        document.addEventListener('DOMContentLoaded', function () {
-          // Simulate the condition
-          if (typeof engage !== 'undefined') {
-            // Simulate the useEffect body
+        useEffect(() => {
+          if (engage !== undefined) {
             sendPageViewEvent();
-          }
-        });
-
-        // Your sendPageViewEvent function
-        function sendPageViewEvent() {
+          };
+        }, []);
+        const sendPageViewEvent = async () => {
           const eventData = {
             channel: "WEB",
-            currency: "EUR",
+            currency: "USD",
             pointOfSale: "MobileRetail",
             language: "EN",
             page: "index",
-
+            pageVariantId: "351"
           };
-
           const extensionData = {
             customKey: "customValue"
           };
+          await engage.pageView(eventData, extensionData);
+        };
 
-          // Simulate the engage.pageView function
-          if (typeof engage.pageView === 'function') {
-            engage.pageView(eventData, extensionData);
-          }
-        }
       </script>
     </body>
 
