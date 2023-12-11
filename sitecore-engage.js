@@ -25,19 +25,6 @@ s.addEventListener("load", async () => {
     engage = await window.Engage.init(settings);
           
     
-    // common.js
-
-// Your engage function logic
-function engageLogic() {
-    // Simulate the useEffect hook
-    document.addEventListener('DOMContentLoaded', function () {
-        // Simulate the condition
-        if (typeof engage !== 'undefined') {
-            // Simulate the useEffect body
-            sendPageViewEvent();
-        }
-    });
-
 
 
 // For testing and debugging purposes only
