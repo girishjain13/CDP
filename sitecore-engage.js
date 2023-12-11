@@ -42,8 +42,8 @@ function engageLogic() {
     function sendPageViewEvent() {
         const eventData = {
             channel: "WEB",
-            currency: "EUR",
-            pointOfSale: "myretailsite/ireland",
+            currency: "USD",
+            pointOfSale: "MobileRetail",
             language: "EN",
             page: getPageName(), // This will be dynamic based on the page
             pageVariantId: "351"
