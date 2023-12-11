@@ -25,7 +25,47 @@ s.addEventListener("load", async () => {
     engage = await window.Engage.init(settings);
           
     
-    
+    // common.js
+
+// Your engage function logic
+function engageLogic() {
+    // Simulate the useEffect hook
+    document.addEventListener('DOMContentLoaded', function () {
+        // Simulate the condition
+        if (typeof engage !== 'undefined') {
+            // Simulate the useEffect body
+            sendPageViewEvent();
+        }
+    });
+
+    // Your sendPageViewEvent function
+    function sendPageViewEvent() {
+        const eventData = {
+            channel: "WEB",
+            currency: "EUR",
+            pointOfSale: "myretailsite/ireland",
+            language: "EN",
+            page: getPageName(), // This will be dynamic based on the page
+            pageVariantId: "351"
+        };
+
+        const extensionData = {
+            customKey: "customValue"
+        };
+
+        // Simulate the engage.pageView function
+        if (typeof engage.pageView === 'function') {
+            engage.pageView(eventData, extensionData);
+        }
+    }
+
+    // Function to get the page name dynamically
+    function getPageName() {
+        // You can customize this logic based on your page names
+        return window.location.pathname.replace('/', ''); // Assuming page names are in the URL path
+    }
+}
+
 
 // For testing and debugging purposes only
 console.log("Copy-paste the following line into Sitecore CDP > Guests > Search field:");

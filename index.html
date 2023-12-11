@@ -59,38 +59,14 @@
     </nav>
   </header>
   <script src="./sitecore-engage.js"></script>
+
+  <!-- Your specific logic for the Home page -->
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      // Simulate the condition
-      if (typeof engage !== 'undefined') {
-        // Simulate the useEffect body
-        sendPageViewEvent();
-      }
-    });
+    // Call the common function for engage logic
+    engageLogic();
 
-    // Your sendPageViewEvent function
-    function sendPageViewEvent() {
-      const eventData = {
-        channel: "WEB",
-        currency: "EUR",
-        pointOfSale: "MobileRetail",
-        language: "EN",
-        page: "index"
-      };
-
-      const extensionData = {
-        customKey: "customValue"
-      };
-
-      // Simulate the engage.pageView function
-      if (typeof engage.pageView === 'function') {
-        engage.pageView(eventData, extensionData);
-      }
-    }
-
-
+    // Additional Home page-specific code if needed
   </script>
-
   <main>
     <section id="featured-products">
       <h2>Featured Products</h2>
