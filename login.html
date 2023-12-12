@@ -89,7 +89,7 @@
 
 
     <script>
-      var engage = window.engage;
+      const eng = window.engage;
 
       const form = document.getElementById('login-form');
       const emailInput = document.getElementById('email');
@@ -118,7 +118,7 @@
         };
 
         // Send IDENTITY event to Sitecore CDP
-        await engage.identity(eventData, extensionData);
+        await eng.identity(eventData, extensionData);
 
         // Clear the form inputs
         emailInput.value = '';
