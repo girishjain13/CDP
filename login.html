@@ -77,6 +77,55 @@
       engage.pageView(eventData);
 
     </script>
+    <script>
+
+      import { engage } from "sitecore-engage.js";
+
+      export default function Form() {
+        const [email, setEmail] = useState("");
+
+        const handleEmail = (e) => {
+          setEmail(e.target.value);
+        };
+
+        const handleSubmit = async (e) => {
+          e.preventDefault();
+
+          const eventData = {
+            channel: "WEB",
+            currency: "EUR",
+            pointOfSale: "MobileRetail",
+            language: "EN",
+            page: "login",
+            email,
+            identifiers: [
+              {
+                id: "123456",
+                provider: "BXLP"
+              }
+            ]
+          };
+
+          const extensionData = {
+            customKey: "customValue"
+          };
+
+          // Send IDENTITY event to Sitecore CDP
+          await engage.identity(eventData, extensionData);
+        };
+
+        return (
+          <form onSubmit={handleSubmit}>
+            <label>
+              <span>Email:</span>
+              <input type="text" onChange={handleEmail} value={email} />
+            </label>
+
+            <button>Subscribe</button>
+          </form>
+        )
+      };
+    </script>
     <form id="loginForm">
       <label for="firstName">First Name:</label>
       <input type="text" id="firstName" required>
