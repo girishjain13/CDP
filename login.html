@@ -61,14 +61,21 @@
 
 
   <main>
-    <script src="./sitecore-engage.js"></script>
+    <script src="sitecore-engage.js"></script>
 
-    <!-- Your specific logic for the Home page -->
+    <!-- Your JavaScript code -->
     <script>
-      // Call the common function for engage logic
-      engageLogic();
+      var engage
+      var eventData = {
+        channel: "WEB",
+        language: "EN",
+        currency: "USD",
+        page: "index",
+        pointOfSale: "login"
+      };
+      // Send a VIEW event
+      engage.pageView(eventData);
 
-      // Additional Home page-specific code if needed
     </script>
     <form id="loginForm">
       <label for="firstName">First Name:</label>
