@@ -59,17 +59,21 @@
       <a href="contact.html">Contact</a>
     </nav>
   </header>
-  <script src="./sitecore-engage.js"></script>
-
-  <!-- Your specific logic for the Home page -->
-  <script>
-    // Call the common function for engage logic
-    engageLogic();
-
-    // Additional Home page-specific code if needed
-  </script>
 
   <main>
+    <script>
+      var engage
+      var eventData = {
+        channel: "WEB",
+        language: "EN",
+        currency: "USD",
+        page: "iphone 13 Product Detail Page",
+        pointOfSale: "MobileRetail"
+      };
+      // Send a VIEW event
+      engage.pageView(eventData);
+
+    </script>
     <!-- Main content of the product detail page -->
     <a href="phone-detail-page.html?id=2">
       <img src="https://th.bing.com/th/id/OIP.jqxIECdT_dPmRABToeIYjwHaJ_?rs=1&pid=ImgDetMain" alt="Phone Image">

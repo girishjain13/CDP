@@ -48,14 +48,18 @@
 </head>
 
 <body>
-  <script src="./sitecore-engage.js"></script>
-
-  <!-- Your specific logic for the Home page -->
   <script>
-    // Call the common function for engage logic
-    engageLogic();
+    var engage
+    var eventData = {
+      channel: "WEB",
+      language: "EN",
+      currency: "USD",
+      page: "galaxyS21",
+      pointOfSale: "MobileRetail"
+    };
+    // Send a VIEW event
+    engage.pageView(eventData);
 
-    // Additional Home page-specific code if needed
   </script>
 
   <header>
