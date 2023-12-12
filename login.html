@@ -63,20 +63,7 @@
   <main>
     <script src="sitecore-engage.js"></script>
 
-    <!-- Your JavaScript code -->
-    <script>
-      var engage
-      var eventData = {
-        channel: "WEB",
-        language: "EN",
-        currency: "USD",
-        page: "login",
-        pointOfSale: "MobileRetail"
-      };
-      // Send a VIEW event
-      engage.pageView(eventData);
 
-    </script>
     <form id="login-form">
       <label for="email">Email:</label>
       <input type="text" id="email" name="email" required>
@@ -89,7 +76,7 @@
 
 
     <script>
-      const eng = window.engage;
+      var engage = window.engage;
 
       const form = document.getElementById('login-form');
       const emailInput = document.getElementById('email');
@@ -112,6 +99,7 @@
             }
           ]
         };
+        engage.pageView(eventData);
 
         const extensionData = {
           customKey: "customValue"
