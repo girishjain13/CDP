@@ -77,19 +77,25 @@
       engage.pageView(eventData);
 
     </script>
-    <script>
+    <script type="module" src="path/to/sitecore-engage.js"></script>
+    </head>
 
-      import { engage } from "sitecore-engage.js";
+    <body>
 
-      export default function Form() {
-        const [email, setEmail] = useState("");
+      <form id="loginForm" onsubmit="handleSubmit(event)">
+        <label>
+          <span>Email:</span>
+          <input type="text" id="emailInput" />
+        </label>
 
-        const handleEmail = (e) => {
-          setEmail(e.target.value);
-        };
+        <button type="submit">Login</button>
+      </form>
 
-        const handleSubmit = async (e) => {
-          e.preventDefault();
+      <script type="module">
+        async function handleSubmit(event) {
+          event.preventDefault();
+
+          const email = document.getElementById('emailInput').value;
 
           const eventData = {
             channel: "WEB",
@@ -112,43 +118,8 @@
 
           // Send IDENTITY event to Sitecore CDP
           await engage.identity(eventData, extensionData);
-        };
-
-        return (
-          <form onSubmit={handleSubmit}>
-            <label>
-              <span>Email:</span>
-              <input type="text" onChange={handleEmail} value={email} />
-            </label>
-
-            <button>Subscribe</button>
-          </form>
-        )
-      };
-    </script>
-    <form id="loginForm">
-      <label for="firstName">First Name:</label>
-      <input type="text" id="firstName" required>
-
-      <label for="lastName">Last Name:</label>
-      <input type="text" id="lastName" required>
-
-      <button type="button" onclick="login()">Login</button>
-    </form>
-
-    <script>
-      function login() {
-        const firstName = document.getElementById('firstName').value;
-        const lastName = document.getElementById('lastName').value;
-
-        if (firstName && lastName) {
-          // Perform any additional login logic here
-          alert(`Welcome, ${firstName} ${lastName}! You have successfully logged in.`);
-        } else {
-          alert('Please fill in both first name and last name fields.');
         }
-      }
-    </script>
+      </script>
 
 
   </main>
