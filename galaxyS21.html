@@ -50,37 +50,37 @@
 <body>
   <script src="sitecore-engage.js"></script>
   <script>
+    const engage = window.engage;
 
-    var engage
-    var eventData = {
-      channel: "WEB",
-      language: "EN",
-      currency: "USD",
-      page: "galaxyS21",
-      pointOfSale: "MobileRetail"
-           product: {
-        id: "12345",
-        name: "Samsung Galaxy S21",
-        price: 699.99,
-        quantity: 1
-      },
-      cart: {
-        id: "67890",
-        total: 699.99,
-        items: [
-          {
-            id: "12345",
-            name: "Samsung Galaxy S21",
-            price: 699.99,
-            quantity: 1
-          }
-        ]
-      }
+    const addToCart = () => {
+      const eventData = {
+        channel: "WEB",
+        currency: "USD",
+        pointOfSale: "MobileRetail",
+        language: "EN",
+        page: "productDetails",
+        product: {
+          id: "12345",
+          name: "Samsung Galaxy S21",
+          price: 699.99,
+          quantity: 1
+        },
+        cart: {
+          id: "67890",
+          total: 699.99,
+          items: [
+            {
+              id: "12345",
+              name: "Samsung Galaxy S21",
+              price: 699.99,
+              quantity: 1
+            }
+          ]
+        }
+      };
 
+      engage.eventCreate("ADD", eventData);
     };
-    // Send a VIEW event
-    engage.eventCreate("ADD", eventData);
-
   </script>
 
   <header>
