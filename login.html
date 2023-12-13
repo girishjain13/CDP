@@ -75,6 +75,30 @@
     engage.pageView(eventData);
 
   </script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/@sitecore-eng/sitecore-engage-sdk@1.4.0/dist/sitecore-engage.min.js"></script>
+  <script>
+    var engage = window.Engage.init({
+      clientKey: "sndbxus06p9cxhoqoiowkr1sbq5casz3",
+      targetURL: "https://api-engage-us.sitecorecloud.io",
+      pointOfSale: "MobileRetail",
+      cookieDomain: ".gjsitecorecdp.vercel.app",
+      cookieExpiryDays: 365,
+      forceServerCookieMode: false,
+      includeUTMParameters: true,
+      webPersonalization: false
+    });
+
+    var identityEvent = {
+      "type": "IDENTITY",
+      "channel": "WEB",
+      "email": "johndoe@example.com",
+      "firstname": "John",
+      "lastname": "Doe"
+    };
+
+    engage.send(identityEvent);
+  </script>
   <form id="loginForm" onsubmit="handleSubmit(event)">
     <label for="fname">First Name:</label><br>
     <input type="text" id="fname" name="fname"><br>
