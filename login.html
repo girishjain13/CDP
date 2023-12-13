@@ -92,30 +92,11 @@
       };
 
       // Login Event
-      const loginEvent = {
-        channel: "WEB",
-        currency: "EUR",
-        pointOfSale: "MobileRetail",
-        language: "EN",
-        page: "login",
-        email,
-        identifiers: [
-          {
-            id: "123456",
-            provider: "BXLP"
-          }
-        ]
-      };
 
-      const extensionData = {
-        customKey: "customValue"
-      };
 
       // Send Page View event to Sitecore CDP
       await engage.view(pageViewEvent, extensionData);
 
-      // Send IDENTITY event to Sitecore CDP
-      await engage.identity(loginEvent, extensionData);
     }
   </script>
 
