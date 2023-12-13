@@ -43,6 +43,8 @@
       padding: 1em;
     }
   </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.sitecore.com/fos/engage-js-sdk/latest/sitecore-engage-sdk.min.js"></script>
 </head>
 
 <body>
@@ -62,56 +64,44 @@
 
   <main>
     <script src="sitecore-engage.js"></script>
-
-
-    <form id="login-form">
+    <form>
       <label for="email">Email:</label>
-      <input type="text" id="email" name="email" required>
-      <br><br>
+      <input type="email" id="email" name="email" required><br><br>
       <label for="password">Password:</label>
-      <input type="password" id="password" name="password" required>
-      <br><br>
-      <button type="submit" id="login-button">Login</button>
+      <input type="password" id="password" name="password" required><br><br>
+      <button type="submit" onclick="sendDataToSitecoreCDP()">Submit</button>
     </form>
+
+    <script src="sitecore-engage.js"></script>
+    <script>
+      var engage
+      var eventData = {
+        channel: "WEB",
+        language: "EN",
+        currency: "USD",
+        page: "login",
+        pointOfSale: "MobileRetail"
+      };
+      // Send a VIEW event
+      engage.pageView(eventData);
+
+    </script>
 
 
     <script>
-      var engage = window.engage;
+      function sendDataToSitecoreCDP() {
+        // Create a new guest object.
+        var guest = new Sitecore.EngageSDK.Guest();
 
-      const form = document.getElementById('login-form');
-      const emailInput = document.getElementById('email');
-      const passwordInput = document.getElementById('password');
+        // Set the guest's email address.
+        guest.Email = $("#email").val();
 
-      form.addEventListener('submit', async (event) => {
-        event.preventDefault();
+        // Set the guest's password.
+        guest.Password = $("#password").val();
 
-        const eventData = {
-          channel: "WEB",
-          currency: "USD",
-          pointOfSale: "MobileRetail",
-          language: "EN",
-          page: "login",
-          email: emailInput.value,
-          identifiers: [
-            {
-              id: "123456",
-              provider: "BXLP"
-            }
-          ]
-        };
-        engage.pageView(eventData);
-
-        const extensionData = {
-          customKey: "customValue"
-        };
-
-        // Send IDENTITY event to Sitecore CDP
-        await engage.identity(eventData, extensionData);
-
-        // Clear the form inputs
-        emailInput.value = '';
-        passwordInput.value = '';
-      });
+        // Send the guest data to Sitecore CDP.
+        Sitecore.EngageSDK.SendGuestData(guest);
+      }
     </script>
 
 
