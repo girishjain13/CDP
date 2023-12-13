@@ -70,14 +70,29 @@
   </form>
   <script src="sitecore-engage.js"></script>
 
-
   <script type="module">
     async function handleSubmit(event) {
       event.preventDefault();
 
       const email = document.getElementById('emailInput').value;
 
-      const eventData = {
+      // Page View Event
+      const pageViewEvent = {
+        channel: "WEB",
+        currency: "EUR",
+        pointOfSale: "MobileRetail",
+        language: "EN",
+        page: "login,
+      identifiers: [
+          {
+            id: "123456",
+            provider: "BXLP"
+          }
+        ]
+      };
+
+      // Login Event
+      const loginEvent = {
         channel: "WEB",
         currency: "EUR",
         pointOfSale: "MobileRetail",
@@ -96,8 +111,11 @@
         customKey: "customValue"
       };
 
+      // Send Page View event to Sitecore CDP
+      await engage.view(pageViewEvent, extensionData);
+
       // Send IDENTITY event to Sitecore CDP
-      await engage.identity(eventData, extensionData);
+      await engage.identity(loginEvent, extensionData);
     }
   </script>
 
