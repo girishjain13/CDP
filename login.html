@@ -43,8 +43,7 @@
       padding: 1em;
     }
   </style>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.sitecore.com/fos/engage-js-sdk/latest/sitecore-engage-sdk.min.js"></script>
+
 </head>
 
 <body>
@@ -60,52 +59,45 @@
       <a href="contact.html">Contact</a>
     </nav>
   </header>
+  <form id="loginForm" onsubmit="handleSubmit(event)">
+    <label>
+      <span>Email:</span>
+      <input type="text" id="emailInput" />
+    </label>
 
+    <button type="submit">Login</button>
+  </form>
 
-  <main>
-    <script src="sitecore-engage.js"></script>
-    <form>
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required><br><br>
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" required><br><br>
-      <button type="submit" onclick="sendDataToSitecoreCDP()">Submit</button>
-    </form>
+  <script type="module">
+    async function handleSubmit(event) {
+      event.preventDefault();
 
-    <script src="sitecore-engage.js"></script>
-    <script>
-      var engage
-      var eventData = {
+      const email = document.getElementById('emailInput').value;
+
+      const eventData = {
         channel: "WEB",
+        currency: "EUR",
+        pointOfSale: "MobileRetail",
         language: "EN",
-        currency: "USD",
         page: "login",
-        pointOfSale: "MobileRetail"
+        email,
+        identifiers: [
+          {
+            id: "123456",
+            provider: "BXLP"
+          }
+        ]
       };
-      // Send a VIEW event
-      engage.pageView(eventData);
 
-    </script>
+      const extensionData = {
+        customKey: "customValue"
+      };
 
+      // Send IDENTITY event to Sitecore CDP
+      await engage.identity(eventData, extensionData);
+    }
+  </script>
 
-    <script>
-      function sendDataToSitecoreCDP() {
-        // Create a new guest object.
-        var guest = new Sitecore.EngageSDK.Guest();
-
-        // Set the guest's email address.
-        guest.Email = $("#email").val();
-
-        // Set the guest's password.
-        guest.Password = $("#password").val();
-
-        // Send the guest data to Sitecore CDP.
-        Sitecore.EngageSDK.SendGuestData(guest);
-      }
-    </script>
-
-
-  </main>
 
   <footer>
     <p>&copy; 2023 Your Website. All rights reserved.</p>
