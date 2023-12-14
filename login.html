@@ -63,7 +63,7 @@
   </header>
 
 
-  <form id="loginForm" onsubmit="handleSubmit(event)">
+  <form id="loginForm" onsubmit="handleSubmit(identityEvent)">
     <label for="fname">First Name:</label><br>
     <input type="text" id="fname" name="fname"><br>
     <label for="lname">Last Name:</label><br>
@@ -79,7 +79,7 @@
   <script>
     var engage
     const identityEvent = {
-      browser_id: Boxever.getID(),
+      browser_id: engage.getBrowserID(),
       channel: "WEB",
       type: "IDENTITY",
       language: "EN",
