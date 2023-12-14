@@ -74,18 +74,10 @@
   </form>
   <script src="sitecore-engage.js"></script>
 
-  <script>
-    var engage = window.Engage.init({
-      clientKey: "sndbxus06p9cxhoqoiowkr1sbq5casz3",
-      targetURL: "https://api-engage-us.sitecorecloud.io",
-      pointOfSale: "MobileRetail",
-      cookieDomain: ".gjsitecorecdp.vercel.app",
-      cookieExpiryDays: 365,
-      forceServerCookieMode: false,
-      includeUTMParameters: true,
-      webPersonalization: false
-    });
 
+  script src="sitecore-engage.js"></script>
+  <script>
+    var engage
     var eventData = {
       channel: "WEB",
       language: "EN",
@@ -93,24 +85,42 @@
       page: "login",
       pointOfSale: "MobileRetail"
     };
-
     // Send a VIEW event
     engage.pageView(eventData);
 
-    function handleSubmit(event) {
-      event.preventDefault();
-
-      // Send an IDENTITY event
-      engage.identify({
-        externalId: "your_external_id", // replace with your actual external ID
-        firstName: document.getElementById('fname').value,
-        lastName: document.getElementById('lname').value,
-        email: document.getElementById('email').value
-      });
-    }
   </script>
 
+  <script src="https://cdn.boxever.com/web-sdk/boxever-latest.min.js"></script>
+  <script>
+    const form = document.getElementById('subscribe-form');
+    const emailInput = document.getElementById('email-input');
 
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const eventData = {
+        channel: 'WEB',
+        currency: 'USD',
+        pointOfSale: 'MobileRetail',
+        language: 'EN',
+        page: 'login',
+        email: emailInput.value,
+        identifiers: [
+          {
+            id: '123456',
+            provider: 'BXLP'
+          }
+        ]
+      };
+
+      const extensionData = {
+        customKey: 'customValue'
+      };
+
+      // Send IDENTITY event to Sitecore CDP
+      await boxever.eventCreate('IDENTITY', eventData, extensionData);
+    });
+  </script>
 
   <footer>
     <p>&copy; 2023 Your Website. All rights reserved.</p>
