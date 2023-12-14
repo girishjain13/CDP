@@ -71,6 +71,21 @@
     };
     // Send a VIEW event
     engage.pageView(eventData);
+
+  </script>
+
+  <form id="loginForm">
+    <label for="fname">First Name:</label><br>
+    <input type="text" id="fname" name="fname"><br>
+    <label for="lname">Last Name:</label><br>
+    <input type="text" id="lname" name="lname"><br>
+    <label for="email">Email ID:</label><br>
+    <input type="email" id="email" name="email"><br><br>
+    <button type="button" onclick="submit()">submit</button>
+  </form>
+
+
+  <script>
     function submit() {
       // Capture data from the form
       var firstName = document.getElementById("fname").value;
@@ -101,19 +116,6 @@
       document.getElementById("loginForm").submit();
     }
   </script>
-
-  <form id="loginForm">
-    <label for="fname">First Name:</label><br>
-    <input type="text" id="fname" name="fname"><br>
-    <label for="lname">Last Name:</label><br>
-    <input type="text" id="lname" name="lname"><br>
-    <label for="email">Email ID:</label><br>
-    <input type="email" id="email" name="email"><br><br>
-    <button type="button" onclick="submit()">submit</button>
-  </form>
-
-
-
 
 
   <footer>
