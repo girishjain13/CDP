@@ -88,6 +88,9 @@
     <button type="button" onclick="submit()">Login</button>
   </form>
   <script>
+    var firstName = document.getElementById("fname").value;
+    var lastName = document.getElementById("lname").value;
+    var email = document.getElementById("email").value;
     var identityEvent = {
       channel: "WEB",
       type: "IDENTITY",
@@ -100,6 +103,9 @@
         {
           id: "123456",
           provider: "BXLP"
+          fname: firstNAme,
+          lname: lastName,
+          email: email
         }
       ],
 
