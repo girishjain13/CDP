@@ -72,6 +72,29 @@
     // Send a VIEW event
     engage.pageView(eventData);
 
+    function submit() {
+      // Capture user information
+      var firstName = document.getElementById("fname").value;
+      var lastName = document.getElementById("lname").value;
+      var email = document.getElementById("email").value;
+
+      // Send an identity event when the user logs in
+      var identityEventData = {
+        channel: "WEB",
+        language: "EN",
+        currency: "USD",
+        page: "login",
+        pointOfSale: "MobileRetail",
+        identity: {
+          firstName: firstName,
+          lastName: lastName,
+          email: email
+        }
+      };
+
+      engage.identity(identityEventData);
+    }
+
   </script>
 
 
@@ -82,54 +105,12 @@
     <input type="text" id="lname" name="lname"><br>
     <label for="email">Email ID:</label><br>
     <input type="email" id="email" name="email"><br><br>
-    <button onclick="submit()">Login</button>
+    <button type="button" onclick="submit()">Login</button>
   </form>
 
 
 
-  <script>
-    var engage
 
-    function submit() {
-      var data = {
-        Email: $('#email').val()
-      };
-
-      $.post("/Auth/Login",
-        { loginModel: data },
-        function () {
-          //https://doc.sitecore.com/cdp/en/developers/sitecore-customer-data-platform--data-model-2-1/send-an-identity-event-to-sitecore-cdp.html
-          engage.push(function () {
-            var identityEvent = {
-              channel: "WEB",
-              type: "IDENTITY",
-              language: "EN",
-              currency: "USD",
-              page: "login",
-              pos: "MobileRetail",
-              browser_id: engage.getID(),
-              email: $('#email').val(),
-              title: "Mr",
-              firstname: $('#firstname').val(),
-              lastname: $('#lastname').val(),
-
-              identifiers: [{
-                provider: "BXLP",
-                id: "56789"
-              }]
-            };
-
-            // Invoke event create
-            // (<event msg>, <callback function>, <format>)
-            engage.eventCreate(identityEvent, function (data) { }, 'json');
-          });
-
-          alert('Successfully Logged In.')
-        });
-
-      return false;
-    }
-  </script>
 
 
   <footer>
