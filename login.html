@@ -85,45 +85,57 @@
     <button type="button" onclick="submit()">submit</button>
   </form>
   <script>
+
+
+
     function submit() {
       var data = {
         Email: $('#email').val()
+      };
 
-      }
-      var engage
+      $.post("/Auth/Login", { loginModel: data }, function () {
+        // Boxever identity event
+        engage.push(function () {
+          var identityEvent = {
+            "channel": "WEB",
+            "type": "IDENTITY",
+            "language": "EN",
+            "currency": "INR",
+            "page": "/login",
+            "pos": "@HelloSitecoreCDP.Helpers.ConfigHelper.POS",
+            "browser_id": engage.getID(),
+            "email": $('#email').val(),
+            "title": "Mr",
+            "firstname": $('#firstname').val(),
+            "lastname": $('#lastname').val(),
+            "gender": "male",
+            "dob": "1980-01-23T00:00",
+            "passport_no": "IR123456",
+            "mobile": "+3531234567",
+            "phone": "+353123456",
+            "street": ["Ashford House", "Tara Street", "Dublin 2"],
+            "city": "Vadodara",
+            "country": "India",
+            "postal_code": "390021",
+            "propensitytopirchase": "0.5",
+            "identifiers": [{
+              "provider": "BXLP",
+              "id": "56789"
+            }]
+          };
 
+          // Invoke event create
+          engage.eventCreate(identityEvent, function (data) { }, 'json');
+        });
 
-      var identityEvent = {
-        channel: "WEB",
-        type: "IDENTITY",
-        language: "EN",
-        currency: "USD",
-        page: "login",
-        pos: "MobileRetail",
-        email: $('#email').val(),
+        // Alert when successfully logged in
+        alert('Successfully Logged In.');
+      });
 
-
-        identifiers: [
-          {
-            id: "123456",
-            provider: "BXLP"
-
-          }],
-
-        engage.identity(identityEvent, function (data) { }, 'json');
-        alert("Logged in successfully!");
-
-      }
+      return false;
     }
+
   </script>
-
-
-
-  /
-
-
-
-
 
 
   <footer>
