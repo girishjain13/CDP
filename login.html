@@ -110,7 +110,7 @@
 
           }],
 
-        engage.identity(identityEvent);
+        engage.identity(identityEvent, function (data) { }, 'json');
         alert("Logged in successfully!");
 
       }
