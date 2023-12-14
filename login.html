@@ -77,6 +77,9 @@
   </script>
   <script
     src="https://cdn.jsdelivr.net/npm/@sitecore-eng/sitecore-engage-sdk@1.4.0/dist/sitecore-engage.min.js"></script>
+  <script src="//d3c3cq33003psk.cloudfront.net/boxever-0.9.0.min.js"></script>
+  <!-- Link to the JavaScript file -->
+  <script src="login.js"></script>
   <script>
     var engage = window.Engage.init({
       clientKey: "sndbxus06p9cxhoqoiowkr1sbq5casz3",
@@ -90,11 +93,14 @@
     });
 
     var identityEvent = {
-      "type": "IDENTITY",
-      "channel": "WEB",
-      "email": "johndoe@example.com",
-      "firstname": "John",
-      "lastname": "Doe"
+      type: "IDENTITY",
+      channel: "WEB",
+      language: "EN",
+      currency: "USD",
+      page: "login",
+      email: "johndoe@example.com",
+      firstname: "John",
+      lastname: "Doe"
     };
 
     engage.send(identityEvent);
