@@ -86,17 +86,17 @@
         // Boxever identity event
         engage.push(function () {
           var identityEvent = {
-            "channel": "WEB",
-            "type": "IDENTITY",
-            "language": "EN",
-            "currency": "INR",
-            "page": "/login",
-            "pos": "@HelloSitecoreCDP.Helpers.ConfigHelper.POS",
+            channel: "WEB",
+            type: "IDENTITY",
+            language: "EN",
+            currency: "INR",
+            page: "login",
+            pos: "MobileRetail",
             "browser_id": engage.getID(),
-            "email": $('#email').val(),
+            email: $('#email').val(),
             "title": "Mr",
-            "firstname": $('#firstname').val(),
-            "lastname": $('#lastname').val(),
+            firstname: $('#firstname').val(),
+            lastname: $('#lastname').val(),
             "gender": "male",
             "dob": "1980-01-23T00:00",
             "passport_no": "IR123456",
@@ -107,9 +107,9 @@
             "country": "India",
             "postal_code": "390021",
             "propensitytopirchase": "0.5",
-            "identifiers": [{
-              "provider": "BXLP",
-              "id": "56789"
+            identifiers: [{
+              provider: "BXLP",
+              id: "56789"
             }]
           };
 
