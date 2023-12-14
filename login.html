@@ -78,27 +78,46 @@
 
   <script>
     var engage
-    const identityEvent = {
-      browser_id: engage.getBrowserID(),
-      channel: "WEB",
-      type: "IDENTITY",
-      language: "EN",
-      currency: "EUR",
-      page: "home",
-      pos: "myretailsite/ireland",
-      identifiers: [
-        {
-          id: "123456",
-          provider: "BXLP"
-        }
-      ],
-      email: "jane.doe@myretailsite.com",
-      firstname: "Jane",
-      lastname: "Doe"
-    };
 
-    engage.identity(identityEvent);
+    function submit() {
+      var data = {
+        Email: $('#email').val()
+      };
 
+      $.post("/Auth/Login",
+        { loginModel: data },
+        function () {
+          //https://doc.sitecore.com/cdp/en/developers/sitecore-customer-data-platform--data-model-2-1/send-an-identity-event-to-sitecore-cdp.html
+          engage.push(function () {
+            var identityEvent = {
+              "channel": "WEB",
+              "type": "IDENTITY",
+              "language": "EN",
+              "currency": "INR",
+              "page": "/login",
+              "pos": "MobileRetail",
+              "browser_id": engage.getID(),
+              "email": $('#email').val(),
+              "title": "Mr",
+              "firstname": $('#firstname').val(),
+              "lastname": $('#lastname').val(),
+
+              "identifiers": [{
+                "provider": "BXLP",
+                "id": "56789""
+                        }]
+            };
+
+            // Invoke event create
+            // (<event msg>, <callback function>, <format>)
+            engage.eventCreate(identityEvent, function (data) { }, 'json');
+          });
+
+          alert('Successfully Logged In.')
+        });
+
+      return false;
+    }
   </script>
 
 
