@@ -82,36 +82,39 @@
     <input type="text" id="lname" name="lname"><br>
     <label for="email">Email ID:</label><br>
     <input type="email" id="email" name="email"><br><br>
-    <button type="button" onclick="identityEvent()">submit</button>
+    <button type="button" onclick="submit()">submit</button>
   </form>
   <script>
-    var engage
-    var firstName = document.getElementById("fname").value;
-    var lastName = document.getElementById("lname").value;
-    var email = document.getElementById("email").value;
-    var identityEvent = {
-      channel: "WEB",
-      type: "IDENTITY",
-      language: "EN",
-      currency: "USD",
-      page: "login",
-      pos: "MobileRetail",
+    function submit() {
+      var engage
+      var firstName = document.getElementById("fname").value;
+      var lastName = document.getElementById("lname").value;
+      var email = document.getElementById("email").value;
+      var identityEvent = {
+        channel: "WEB",
+        type: "IDENTITY",
+        language: "EN",
+        currency: "USD",
+        page: "login",
+        pos: "MobileRetail",
 
 
-      identifiers: [
-        {
-          id: "123456",
-          provider: "BXLP"
+        identifiers: [
+          {
+            id: "123456",
+            provider: "BXLP"
 
-        }],
-      user_data: {
-        first_name: firstName,
-        last_name: lastName,
-        email: email
-      }
-    };
-    engage.identity(identityEvent);
-    alert("Logged in successfully!");
+          }],
+        user_data: {
+          first_name: firstName,
+          last_name: lastName,
+          email: email
+        }
+      };
+      engage.identity(identityEvent);
+      alert("Logged in successfully!");
+
+    }
   </script>
 
 
