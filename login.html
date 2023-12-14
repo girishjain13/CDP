@@ -72,39 +72,31 @@
     // Send a VIEW event
     engage.pageView(eventData);
 
-    function submit() {
-      // Capture user information
-      var firstName = document.getElementById("fname").value;
-      var lastName = document.getElementById("lname").value;
-      var email = document.getElementById("email").value;
 
-      // Your custom identity event JavaScript code
-      var identityEventData = {
-        eventType: "IDENTITY",
-        identity: {
-          customer: {
-            firstName: firstName,
-            lastName: lastName,
-            email: email
-          }
-        },
-        source: "web",
-        action: "login",
-        timestamp: new Date().toISOString()
-      };
+    var identityEvent = {
+      channel: "WEB",
+      type: "IDENTITY",
+      language: "EN",
+      currency: "USD",
+      page: "login",
+      pos: "MobileRetail",
 
-      // Replace this with your actual code to send the identity event to Sitecore CDP
-      // Example: engage.sendIdentityEvent(identityEventData);
-
-      // Perform the login action
-      // ...
-
-      // Notify the user with an alert
-      alert("Logged in successfully!");
-
-      // Optionally, redirect to another page after login
-      // window.location.href = "dashboard.html";
+      identifiers: [
+        {
+          id: "123456",
+          provider: "BXLP"
+        }
+      ],
+      email: "jane.doe@myretailsite.com",
+      firstname: "Jane",
+      lastname: "Doe"
     }
+    engage.identity(identityEvent);
+    alert("Logged in successfully!");
+
+    // Optionally, redirect to another page after login
+    // window.location.href = "dashboard.html";
+
   </script>
 
 
