@@ -59,27 +59,19 @@
       <a href="contact.html">Contact</a>
     </nav>
   </header>
+
+
+  <form id="loginForm" onsubmit="handleSubmit(event)">
+    <label for="fname">First Name:</label><br>
+    <input type="text" id="fname" name="fname"><br>
+    <label for="lname">Last Name:</label><br>
+    <input type="text" id="lname" name="lname"><br>
+    <label for="email">Email ID:</label><br>
+    <input type="email" id="email" name="email"><br><br>
+    <input type="submit" value="Submit">
+  </form>
   <script src="sitecore-engage.js"></script>
 
-
-  <script>
-    var engage
-    var eventData = {
-      channel: "WEB",
-      language: "EN",
-      currency: "USD",
-      page: "login",
-      pointOfSale: "MobileRetail"
-    };
-    // Send a VIEW event
-    engage.pageView(eventData);
-
-  </script>
-  <script
-    src="https://cdn.jsdelivr.net/npm/@sitecore-eng/sitecore-engage-sdk@1.4.0/dist/sitecore-engage.min.js"></script>
-  <script src="//d3c3cq33003psk.cloudfront.net/boxever-0.9.0.min.js"></script>
-  <!-- Link to the JavaScript file -->
-  <script src="login.js"></script>
   <script>
     var engage = window.Engage.init({
       clientKey: "sndbxus06p9cxhoqoiowkr1sbq5casz3",
@@ -92,18 +84,29 @@
       webPersonalization: false
     });
 
+    var eventData = {
+      channel: "WEB",
+      language: "EN",
+      currency: "USD",
+      page: "login",
+      pointOfSale: "MobileRetail"
+    };
 
+    // Send a VIEW event
+    engage.pageView(eventData);
+
+    function handleSubmit(event) {
+      event.preventDefault();
+
+      // Send an IDENTITY event
+      engage.identify({
+        externalId: "your_external_id", // replace with your actual external ID
+        firstName: document.getElementById('fname').value,
+        lastName: document.getElementById('lname').value,
+        email: document.getElementById('email').value
+      });
+    }
   </script>
-  <form id="loginForm" onsubmit="handleSubmit(event)">
-    <label for="fname">First Name:</label><br>
-    <input type="text" id="fname" name="fname"><br>
-    <label for="lname">Last Name:</label><br>
-    <input type="text" id="lname" name="lname"><br>
-    <label for="email">Email ID:</label><br>
-    <input type="email" id="email" name="email"><br><br>
-    <input type="submit" value="Submit">
-  </form>
-
 
 
 
