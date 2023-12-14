@@ -43,6 +43,7 @@
       padding: 1em;
     }
   </style>
+  <script src="sitecore-engage.js"></script>
 
 </head>
 
@@ -59,20 +60,6 @@
       <a href="contact.html">Contact</a>
     </nav>
   </header>
-
-
-  <form id="loginForm">
-    <label for="fname">First Name:</label><br>
-    <input type="text" id="fname" name="fname"><br>
-    <label for="lname">Last Name:</label><br>
-    <input type="text" id="lname" name="lname"><br>
-    <label for="email">Email ID:</label><br>
-    <input type="email" id="email" name="email"><br><br>
-    <button onclick="return submit()">Login</button>
-  </form>
-  <script src="sitecore-engage.js"></script>
-
-
   <script>
     var engage
     var eventData = {
@@ -86,6 +73,19 @@
     engage.pageView(eventData);
 
   </script>
+
+
+  <form id="loginForm">
+    <label for="fname">First Name:</label><br>
+    <input type="text" id="fname" name="fname"><br>
+    <label for="lname">Last Name:</label><br>
+    <input type="text" id="lname" name="lname"><br>
+    <label for="email">Email ID:</label><br>
+    <input type="email" id="email" name="email"><br><br>
+    <button onclick="return submit()">Login</button>
+  </form>
+
+
 
   <script>
     var engage
