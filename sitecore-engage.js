@@ -7,6 +7,7 @@ var s = document.createElement("script");
 s.type = "text/javascript";
 s.async = true;
 s.src = "https://d1mj578wat5n4o.cloudfront.net/sitecore-engage-v.1.4.2.min.js";
+s.src = "https://cdn.boxever.com/web-sdk/boxever-latest.min.js"
 var x = document.querySelector("script");
 x.parentNode.insertBefore(s, x);    
 
