@@ -73,6 +73,19 @@
   <script src="sitecore-engage.js"></script>
 
 
+  <script>
+    var engage
+    var eventData = {
+      channel: "WEB",
+      language: "EN",
+      currency: "USD",
+      page: "login",
+      pointOfSale: "MobileRetail"
+    };
+    // Send a VIEW event
+    engage.pageView(eventData);
+
+  </script>
 
   <script>
     var engage
