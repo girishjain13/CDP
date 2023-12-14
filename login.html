@@ -79,17 +79,17 @@
 
 
   <form id="loginForm">
-    <label for="firstname">First Name:</label><br>
+    <label for="fname">First Name:</label><br>
     <input type="text" id="fname" name="fname"><br>
-    <label for="lastname">Last Name:</label><br>
+    <label for="lname">Last Name:</label><br>
     <input type="text" id="lname" name="lname"><br>
     <label for="email">Email ID:</label><br>
     <input type="email" id="email" name="email"><br><br>
     <button type="button" onclick="submit()">Login</button>
   </form>
   <script>
-    var fname = document.getElementById("fname").value;
-    var lname = document.getElementById("lname").value;
+    var firstName = document.getElementById("fname").value;
+    var lastName = document.getElementById("lname").value;
     var email = document.getElementById("email").value;
     var identityEvent = {
       channel: "WEB",
@@ -98,9 +98,6 @@
       currency: "USD",
       page: "login",
       pos: "MobileRetail",
-      firstname: $('#firstname').val(),
-      lastname: $('#lastname').val(),
-      email: $('#email').val(),
 
 
       identifiers: [
@@ -108,10 +105,13 @@
           id: "123456",
           provider: "BXLP"
 
-        }
-      ],
-
-    }
+        }],
+      user_data: {
+        first_name: firstName,
+        last_name: lastName,
+        email: email
+      }
+    };
     engage.identity(identityEvent);
     alert("Logged in successfully!");
 
