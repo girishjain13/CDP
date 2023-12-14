@@ -86,31 +86,6 @@
     <input type="email" id="email" name="email"><br><br>
     <button type="button" onclick="submit()">Login</button>
   </form>
-  <script>
-    function submit() {
-      // Capture user information
-      var firstName = document.getElementById("fname").value;
-      var lastName = document.getElementById("lname").value;
-      var email = document.getElementById("email").value;
-
-      // Send an identity event when the user logs in
-      var identityEventData = {
-        channel: "WEB",
-        language: "EN",
-        currency: "USD",
-        page: "login",
-        pointOfSale: "MobileRetail",
-        identity: {
-          firstName: firstName,
-          lastName: lastName,
-          email: email
-        }
-      };
-
-      engage.identity(identityEventData);
-    }
-
-  </script>
 
 
 
