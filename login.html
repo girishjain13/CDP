@@ -79,9 +79,9 @@
 
 
   <form id="loginForm">
-    <label for="fname">First Name:</label><br>
+    <label for="firstname">First Name:</label><br>
     <input type="text" id="fname" name="fname"><br>
-    <label for="lname">Last Name:</label><br>
+    <label for="lastname">Last Name:</label><br>
     <input type="text" id="lname" name="lname"><br>
     <label for="email">Email ID:</label><br>
     <input type="email" id="email" name="email"><br><br>
@@ -98,14 +98,16 @@
       currency: "USD",
       page: "login",
       pos: "MobileRetail",
+      firstname: $('#firstname').val(),
+      lastname: $('#lastname').val(),
+      email: $('#email').val(),
+
 
       identifiers: [
         {
           id: "123456",
           provider: "BXLP"
-          fname: firstNAme,
-          lname: lastName,
-          email: email
+
         }
       ],
 
