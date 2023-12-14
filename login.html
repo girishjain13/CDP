@@ -75,7 +75,6 @@
   <script src="sitecore-engage.js"></script>
 
 
-  script src="sitecore-engage.js"></script>
   <script>
     var engage
     var eventData = {
@@ -90,37 +89,31 @@
 
   </script>
 
-
   <script>
-    const form = document.getElementById('subscribe-form');
-    const emailInput = document.getElementById('email-input');
+    var engage
+    const identityEvent = {
+      browser_id: Boxever.getID(),
+      channel: "WEB",
+      type: "IDENTITY",
+      language: "EN",
+      currency: "EUR",
+      page: "home",
+      pos: "myretailsite/ireland",
+      identifiers: [
+        {
+          id: "123456",
+          provider: "BXLP"
+        }
+      ],
+      email: "jane.doe@myretailsite.com",
+      firstname: "Jane",
+      lastname: "Doe"
+    };
 
-    form.addEventListener('submit', async (event) => {
-      event.preventDefault();
+    engage.identity(identityEvent);
 
-      const eventData = {
-        channel: 'WEB',
-        currency: 'USD',
-        pointOfSale: 'MobileRetail',
-        language: 'EN',
-        page: 'login',
-        email: emailInput.value,
-        identifiers: [
-          {
-            id: '123456',
-            provider: 'BXLP'
-          }
-        ]
-      };
-
-      const extensionData = {
-        customKey: 'customValue'
-      };
-
-      // Send IDENTITY event to Sitecore CDP
-      await boxever.eventCreate('IDENTITY', eventData, extensionData);
-    });
   </script>
+
 
   <footer>
     <p>&copy; 2023 Your Website. All rights reserved.</p>
