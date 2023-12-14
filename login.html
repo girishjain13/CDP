@@ -92,18 +92,7 @@
       webPersonalization: false
     });
 
-    var identityEvent = {
-      type: "IDENTITY",
-      channel: "WEB",
-      language: "EN",
-      currency: "USD",
-      page: "login",
-      email: "johndoe@example.com",
-      firstname: "John",
-      lastname: "Doe"
-    };
 
-    engage.send(identityEvent);
   </script>
   <form id="loginForm" onsubmit="handleSubmit(event)">
     <label for="fname">First Name:</label><br>
