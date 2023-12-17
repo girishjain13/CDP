@@ -98,9 +98,14 @@
       var identityEventData = {
         channel: "WEB",
         language: "EN",
+        type: "IDENTITY",
         currency: "USD",
         page: "/login",
         pointOfSale: "MobileRetail",
+        "identifiers": [{
+          "provider": "BXLP",
+          "id": "123456"
+        }]
         identity: {
           firstName: firstName,
           lastName: lastName,
