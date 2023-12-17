@@ -85,48 +85,24 @@
 
 
 
-    src = "sitecore-engage.js";
-
-    // Function to send identity event data
-    function sendIdentityEventData() {
-      // Get user's details from the form
-      let firstName = document.getElementById('firstName').value;
-      let lastName = document.getElementById('lastName').value;
-      let emailId = document.getElementById('emailId').value;
-
-      // Your identityEvent object
-      var identityEvent = {
-        "channel": "WEB",
-        "type": "IDENTITY",
-        "language": "EN",
-        "currency": "USD",
-        "page": "login",
-        "pos": "MobileRetail",
-
-        "identifiers": [{
-          "provider": "BXLP",
-          "id": "123456"
-        }],
-        "email": emailId,
-        "firstname": firstName,
-        "lastname": lastName
-      };
-
-      // Send the identityEvent object to Sitecore CDP
-      Boxever.eventCreate(identityEvent, function (data) {
-        // This is where you handle the response
-        console.log(data);
-      }, 'json');
-    }
-
-    // Add event listener to the form
-    document.getElementById('loginForm').addEventListener('submit', function (event) {
-      // Prevent the form from submitting normally
-      event.preventDefault();
-
-      // Call the function to send identity event data
-      sendIdentityEventData();
-    });
+    const identity = {
+      channel: "WEB",
+      type: "IDENTITY",
+      currency: "EUR",
+      pointOfSale: "MobileRetail",
+      language: "EN",
+      page: "login  ",
+      email: "girishjain13@gmail.com  ",
+      firstName: "Girish",
+      lastName: "Jain",
+      identifiers: [
+        {
+          id: "123456",
+          provider: "BXLP"
+        }
+      ]
+    };
+    engage.identity(identity);
 
 
   </script>
