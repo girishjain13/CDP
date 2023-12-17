@@ -88,36 +88,36 @@
   <script>
 
     function submit() {
-      // Capture data from the form
+      // Capture user information
       var firstName = document.getElementById("fname").value;
       var lastName = document.getElementById("lname").value;
       var email = document.getElementById("email").value;
 
-      // Validate data if needed
-
-      // Prepare data for the CDP event
-      var submitEventData = {
+      // Send an identity event when the user logs in
+      var identityEventData = {
         channel: "WEB",
         language: "EN",
         currency: "USD",
         page: "login",
         pointOfSale: "MobileRetail",
-        type: "IDENTITY",
-        browser_id: "eb1d7653-fcc5-4d9a-ad83-b315b9e667b6",
-        customData: {
+        identity: {
           firstName: firstName,
           lastName: lastName,
           email: email
         }
       };
 
-      // Send a SUBMIT event
-      Engage.identity(submitEventData);
+      engage.identity(identityEventData);
 
-      // Optionally, you can submit the form to a server or perform other actions
-      document.getElementById("loginForm").submit();
+      // Perform the login action
+      // ...
+
+      // Notify the user with an alert
+      alert("Logged in successfully!");
+
+      // Optionally, redirect to another page after login
+      // window.location.href = "dashboard.html";
     }
-
 
 
   </script>
