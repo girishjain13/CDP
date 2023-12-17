@@ -76,31 +76,46 @@
   </script>
 
   <form id="loginForm">
-    <input type="text" id="firstName" placeholder="First Name">
-    <input type="text" id="lastName" placeholder="Last Name">
-    <input type="email" id="email" placeholder="Email ID">
-    <input type="submit" value="Submit">
+    <label for="fname">First Name:</label><br>
+    <input type="text" id="fname" name="fname"><br>
+    <label for="lname">Last Name:</label><br>
+    <input type="text" id="lname" name="lname"><br>
+    <label for="email">Email ID:</label><br>
+    <input type="email" id="email" name="email"><br><br>
+    <button type="button" onclick="submit()">Submit</button>
   </form>
 
   <script>
 
-    src = "sitecore-engage.js";
+    function submit() {
+      // Capture data from the form
+      var firstName = document.getElementById("fname").value;
+      var lastName = document.getElementById("lname").value;
+      var email = document.getElementById("email").value;
 
-    var identity = {
-      channel: "WEB",
-      type: "IDENTITY",
-      currency: "EUR",
-      pointOfSale: "MobileRetail",
-      language: "EN",
-      page: "login  ",
-      browser_id: engage.geId(),
-      identifiers: [
-        {
-          id: "123456",
-          provider: "BXLP"
+      // Validate data if needed
+
+      // Prepare data for the CDP event
+      var submitEventData = {
+        channel: "WEB",
+        language: "EN",
+        currency: "USD",
+        page: "login",
+        pointOfSale: "MobileRetail",
+        eventType: "SUBMIT",
+        customData: {
+          firstName: firstName,
+          lastName: lastName,
+          email: email
         }
-      ]
-    };
+      };
+
+      // Send a SUBMIT event
+      engage.trackEvent(submitEventData);
+
+      // Optionally, you can submit the form to a server or perform other actions
+      document.getElementById("loginForm").submit();
+    }
 
 
 
