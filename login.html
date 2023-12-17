@@ -83,36 +83,34 @@
 
   <script>
 
-    document.getElementById('loginForm').addEventListener('submit', function (event) {
-      // Prevent the form from submitting normally
-      event.preventDefault();
 
-      let firstName = document.getElementById('firstName').value;
-      let lastName = document.getElementById('lastName').value;
-      let emailId = document.getElementById('emailId').value;
 
-      const identityEvent = {
-        browser_id: Boxever.getID(),
-        channel: "WEB",
-        type: "IDENTITY",
-        language: "EN",
-        currency: "EUR",
-        page: "login",
-        pos: "MobileRetail",
-        identifiers: [
-          {
-            id: "123456",
-            provider: "BXLP"
-          }
-        ],
-        email: emailId,
-        firstname: firstName,
-        lastname: lastName
-      };
+    let firstName = document.getElementById('firstName').value;
+    let lastName = document.getElementById('lastName').value;
+    let emailId = document.getElementById('emailId').value;
 
-      // Now you can send this data to Sitecore CDP
-      Boxever.eventCreate(identityEvent, function (data) { }, 'json');
-    });
+    const identityEvent = {
+
+      channel: "WEB",
+      type: "IDENTITY",
+      language: "EN",
+      currency: "EUR",
+      page: "login",
+      pos: "MobileRetail",
+      identifiers: [
+        {
+          id: "123456",
+          provider: "BXLP"
+        }
+      ],
+      email: emailId,
+      firstname: firstName,
+      lastname: lastName
+    };
+
+    // Now you can send this data to Sitecore CDP
+    engage.eventCreate(identityEvent, function (data) { console.log(data); }, 'json');
+
   </script>
 
 
