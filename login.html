@@ -75,54 +75,46 @@
   </script>
 
   <form id="loginForm">
-    <label for="name">First Name:</label><br>
-    <input type="text" id="name" name="name"><br>
-    <label for="lname">Last Name:</label><br>
-    <input type="text" id="lname" name="lname"><br>
-    <label for="email">Email ID:</label><br>
-    <input type="email" id="email" name="email"><br><br>
-    <button type="button" onclick="sendUserData()">submit</button>
+    <input type="text" id="firstName" placeholder="First Name">
+    <input type="text" id="lastName" placeholder="Last Name">
+    <input type="email" id="emailId" placeholder="Email ID">
+    <input type="submit" value="Submit">
   </form>
 
-
   <script>
-    function sendUserData() {
-      // Get user input
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
 
-      // Construct payload
-      const payload = {
-        name: name,
-        email: email
-        // Add any additional identity data as needed
+    document.getElementById('loginForm').addEventListener('submit', function (event) {
+      // Prevent the form from submitting normally
+      event.preventDefault();
+
+      let firstName = document.getElementById('firstName').value;
+      let lastName = document.getElementById('lastName').value;
+      let emailId = document.getElementById('emailId').value;
+
+      const identityEvent = {
+        browser_id: Boxever.getID(),
+        channel: "WEB",
+        type: "IDENTITY",
+        language: "EN",
+        currency: "EUR",
+        page: "login",
+        pos: "MobileRetail",
+        identifiers: [
+          {
+            id: "123456",
+            provider: "BXLP"
+          }
+        ],
+        email: emailId,
+        firstname: firstName,
+        lastname: lastName
       };
 
-      // Make API call to Sitecore CDP
-      fetch('https://api-engage-us.sitecorecloud.io', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': '1kQUasq3Xl7XKeL7Jlm9Vf7kXSMGDvWh'
-        },
-        body: JSON.stringify(payload)
-      })
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Failed to send data to Sitecore CDP');
-          }
-          return response.json();
-        })
-        .then(data => {
-          console.log('Data sent successfully:', data);
-          // Handle success as needed
-        })
-        .catch(error => {
-          console.error('Error sending data to Sitecore CDP:', error);
-          // Handle error as needed
-        });
-    }
+      // Now you can send this data to Sitecore CDP
+      Boxever.eventCreate(identityEvent, function (data) { }, 'json');
+    });
   </script>
+
 
 
   <footer>
