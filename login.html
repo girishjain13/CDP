@@ -103,6 +103,7 @@
         page: "login",
         pointOfSale: "MobileRetail",
         type: "IDENTITY",
+        browser_id: "eb1d7653-fcc5-4d9a-ad83-b315b9e667b6",
         customData: {
           firstName: firstName,
           lastName: lastName,
@@ -111,7 +112,7 @@
       };
 
       // Send a SUBMIT event
-      engage.identity(submitEventData);
+      Engage.identity(submitEventData);
 
       // Optionally, you can submit the form to a server or perform other actions
       document.getElementById("loginForm").submit();
