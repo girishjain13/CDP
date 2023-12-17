@@ -81,39 +81,46 @@
     <input type="text" id="lname" name="lname"><br>
     <label for="email">Email ID:</label><br>
     <input type="email" id="email" name="email"><br><br>
-    <button type="button" onclick="submit()">submit</button>
+    <button type="button" onclick="sendUserData()">submit</button>
   </form>
 
 
   <script>
-    function submit() {
-      // Capture data from the form
-      var firstName = document.getElementById("fname").value;
-      var lastName = document.getElementById("lname").value;
-      var email = document.getElementById("email").value;
+    function sendUserData() {
+      // Get user input
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
 
-      // Validate data if needed
-
-      // Prepare data for the CDP event
-      var submitEventData = {
-        channel: "WEB",
-        language: "EN",
-        currency: "USD",
-        page: "login",
-        pointOfSale: "MobileRetail",
-        eventType: "SUBMIT",
-        customData: {
-          firstName: firstName,
-          lastName: lastName,
-          email: email
-        }
+      // Construct payload
+      const payload = {
+        name: name,
+        email: email
+        // Add any additional identity data as needed
       };
 
-      // Send a SUBMIT event
-      engage.trackEvent(submitEventData);
-
-      // Optionally, you can submit the form to a server or perform other actions
-      document.getElementById("loginForm").submit();
+      // Make API call to Sitecore CDP
+      fetch('api.boxever.com/v1.2', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'sndbxus06p9cxhoqoiowkr1sbq5casz3'
+        },
+        body: JSON.stringify(payload)
+      })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Failed to send data to Sitecore CDP');
+          }
+          return response.json();
+        })
+        .then(data => {
+          console.log('Data sent successfully:', data);
+          // Handle success as needed
+        })
+        .catch(error => {
+          console.error('Error sending data to Sitecore CDP:', error);
+          // Handle error as needed
+        });
     }
   </script>
 
