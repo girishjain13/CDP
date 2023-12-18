@@ -74,59 +74,32 @@
     engage.pageView(eventData);
 
   </script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.sitecore.com/fos/engage-js-sdk/latest/sitecore-engage-sdk.min.js"></script>
 
-  <form id="loginForm">
-    <label for="fname">First Name:</label><br>
-    <input type="text" id="fname" name="fname"><br>
-    <label for="lname">Last Name:</label><br>
-    <input type="text" id="lname" name="lname"><br>
-    <label for="email">Email ID:</label><br>
-    <input type="email" id="email" name="email"><br><br>
-    <button type="submit">Login</button>
-
+  <form>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required><br><br>
+    <button type="submit" onclick="sendDataToSitecoreCDP()">Submit</button>
   </form>
 
   <script>
-    function sendIdentityEvent() {
-      // Identity event details
-      var identityEvent = {
-        "channel": "WEB",
-        "type": "IDENTITY",
-        "language": "EN",
-        "currency": "USD",
-        "page": "login",
-        "pos": "MobileRetail",
+    function sendDataToSitecoreCDP() {
+      // Create a new guest object.
+      var guest = new Sitecore.EngageSDK.Guest();
 
-        "identifiers": [
-          {
-            "id": "123456",
-            "provider": "BXLP"
-          }
-        ],
-        "email": document.getElementById("email").value,
-        "firstname": document.getElementById("firstName").value,
-        "lastname": document.getElementById("lastName").value
-      };
+      // Set the guest's email address.
+      guest.Email = $("#email").val();
 
-      // Log the identity event details (you might want to send this to your server)
-      console.log(identityEvent);
+      // Set the guest's password.
+      guest.Password = $("#password").val();
 
-      // You can send the identity event to your server or perform other actions here
-      // Example: Use fetch to send the data to the server
-      // fetch("/your-server-endpoint", {
-      //     method: "POST",
-      //     body: JSON.stringify(identityEvent),
-      //     headers: {
-      //         "Content-Type": "application/json"
-      //     }
-      // })
-      // .then(response => response.json())
-      // .then(data => console.log(data))
-      // .catch(error => console.error("Error:", error));
-
-      // Prevent the form from submitting (you can remove this line if you want the form to submit)
-      return false;
+      // Send the guest data to Sitecore CDP.
+      Sitecore.EngageSDK.SendGuestData(guest);
     }
+
 
 
   </script>
