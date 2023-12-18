@@ -77,53 +77,66 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.sitecore.com/fos/engage-js-sdk/latest/sitecore-engage-sdk.min.js"></script>
 
-  <form id="subscribe-form">
-    <label>
-      <span>Email:</span>
-      <input type="text" id="email-input" />
-    </label>
-    <button type="submit">Subscribe</button>
-  </form>
+  <head>
+    <title>Login Page</title>
+    <script src="https://sdk.sitecore.com/engage-sdk.js"></script> <!-- Include the Engage SDK -->
+  </head>
+
+  <body>
+    <form id="loginForm">
+      <label for="firstName">First Name:</label><br>
+      <input type="text" id="firstName" name="firstName"><br>
+      <label for="lastName">Last Name:</label><br>
+      <input type="text" id="lastName" name="lastName"><br>
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email"><br>
+      <input type="submit" id="submitButton" value="Login">
+    </form>
+
+    <script>
+      // Initialize the SDK
+      const sdk = new SitecoreCDP();
+
+      document.getElementById('submitButton').addEventListener('click', function (event) {
+        event.preventDefault(); // Prevent the form from being submitted normally
+
+        const firstName = document.getElementById('firstName').value;
+        const lastName = document.getElementById('lastName').value;
+        const email = document.getElementById('email').value;
+
+        const eventData = {
+          channel: "WEB",
+          currency: "EUR",
+          pointOfSale: "myretailsite/ireland",
+          language: "EN",
+          page: "home",
+          email: email,
+          firstName: firstName,
+          lastName: lastName,
+          identifiers: [
+            {
+              id: "123456",
+              provider: "BXLP"
+            }
+          ]
+        };
+
+        // Send the event data
+        sdk.engage('Identify', eventData);
+
+        // Show an alert
+        alert('Engage function called with event data.');
+
+        // You can then manually submit the form if needed, or handle the login process via AJAX
+      });
+    </script>
 
 
-  <script>
-    const form = document.getElementById('subscribe-form');
-    const emailInput = document.getElementById('email-input');
 
-    form.addEventListener('submit', async (event) => {
-      event.preventDefault();
-      var engage
-      const eventData = {
-        channel: 'WEB',
-        currency: 'EUR',
-        type: "IDENTITY",
-        pointOfSale: 'MobileRetail',
-        language: 'EN',
-        page: 'login',
-        email: emailInput.value,
-        identifiers: [
-          {
-            id: '123456',
-            provider: 'BXLP'
-          }
-        ]
-      };
+    <footer>
+      <p>&copy; 2023 Your Website. All rights reserved.</p>
+    </footer>
 
-      const extensionData = {
-        customKey: 'customValue'
-      };
-
-      // Send IDENTITY event to Sitecore CDP
-      await engage.eventCreate('IDENTITY', eventData, extensionData);
-    });
-  </script>
-
-
-
-  <footer>
-    <p>&copy; 2023 Your Website. All rights reserved.</p>
-  </footer>
-
-</body>
+  </body>
 
 </html>
