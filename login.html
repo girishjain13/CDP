@@ -86,39 +86,24 @@
 
   <script>
     function submit() {
-      // Capture user information
-      var firstName = document.getElementById("fname").value;
-      var lastName = document.getElementById("lname").value;
-      var email = document.getElementById("email").value;
-
-      // Send an identity event when the user logs in
-      var identityEventData = {
+      let email = "paul.bonilla@test.com"
+      let event = {
         channel: "WEB",
         language: "EN",
-        type: "IDENTITY",
         currency: "USD",
-        page: "login",
-        pointOfSale: "MobileRetail",
-        firstName,
-        lastName,
-        email: 'email',
-        identifiers: [{
-          id: "123456",
-          provider: "BXLP"
-
-        }]
+        page: "Login",
+        pos: window.Engage.settings.pointOfSale,
+        browser_id: window.Engage.getBrowserId(),
+        email: email,
+        identifiers: [
+          {
+            provider: "email",
+            id: email,
+          },
+        ],
       };
+      engage.identity(event);
 
-      engage.identity(identityEventData);
-
-      // Perform the login action
-      // ...
-
-      // Notify the user with an alert
-      alert("Logged in successfully!");
-
-      // Optionally, redirect to another page after login
-      // window.location.href = "dashboard.html";
     }
 
 
