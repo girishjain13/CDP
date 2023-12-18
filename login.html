@@ -75,41 +75,35 @@
 
   </script>
 
-
-
+  <script src="https://sdk.sitecore.com/engage-sdk.js"></script> <!-- Include the Sitecore CDP Engage SDK -->
+  </head>
 
   <body>
-    <form id="loginForm">
-      <label for="firstName">First Name:</label><br>
-      <input type="text" id="firstName" name="firstName"><br>
-      <label for="lastName">Last Name:</label><br>
-      <input type="text" id="lastName" name="lastName"><br>
-      <label for="email">Email:</label><br>
-      <input type="email" id="email" name="email"><br>
-      <input type="submit" id="submitButton" value="Login">
+    <form id="myForm">
+      <label>
+        <span>Email:</span>
+        <input type="text" id="emailInput" />
+      </label>
+
+      <button type="submit">Subscribe</button>
     </form>
 
     <script>
       // Initialize the SDK
+      var engage = new SitecoreCDP();
 
+      document.getElementById('myForm').addEventListener('submit', function (e) {
+        e.preventDefault(); // Prevent the form from being submitted normally
 
-      document.getElementById('submitButton').addEventListener('click', function (event) {
-        event.preventDefault(); // Prevent the form from being submitted normally
+        var email = document.getElementById('emailInput').value;
 
-        const firstName = document.getElementById('firstName').value;
-        const lastName = document.getElementById('lastName').value;
-        const email = document.getElementById('email').value;
-
-        const eventData = {
+        var eventData = {
           channel: "WEB",
-          currency: "EUR",
-          type: "IDENTITY",
+          currency: "USD",
           pointOfSale: "MobileRetail",
           language: "EN",
           page: "login",
           email: email,
-          firstName: firstName,
-          lastName: lastName,
           identifiers: [
             {
               id: "123456",
@@ -118,22 +112,22 @@
           ]
         };
 
-        // Send the event data
-        engage.createEvent('Identify', eventData);
+        var extensionData = {
+          customKey: "customValue"
+        };
 
-        // Show an alert
-        alert('Engage function called with event data.');
-
-        // You can then manually submit the form if needed, or handle the login process via AJAX
+        // Send IDENTITY event to Sitecore CDP
+        engage.identity(eventData, extensionData);
       });
     </script>
-
-
-
-    <footer>
-      <p>&copy; 2023 Your Website. All rights reserved.</p>
-    </footer>
-
   </body>
+
+
+
+  <footer>
+    <p>&copy; 2023 Your Website. All rights reserved.</p>
+  </footer>
+
+</body>
 
 </html>
