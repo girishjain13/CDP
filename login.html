@@ -61,68 +61,63 @@
     </nav>
   </header>
   <script src="sitecore-engage.js"></script>
-  <script>
-    var engage
-    var eventData = {
-      channel: "WEB",
-      language: "EN",
-      currency: "USD",
-      page: "login",
-      pointOfSale: "MobileRetail"
-    };
-    // Send a VIEW event
 
+  <form id="loginForm" onsubmit="handleSubmit(event)">
+    <label>
+      <span>Email:</span>
+      <input type="text" id="emailInput" />
+    </label>
 
-  </script>
-  <form id="loginForm">
-    <label for="fname">First Name:</label><br>
-    <input type="text" id="fname" name="fname"><br>
-    <label for="lname">Last Name:</label><br>
-    <input type="text" id="lname" name="lname"><br>
-    <label for="email">Email ID:</label><br>
-    <input type="email" id="email" name="email"><br><br>
-    <button type="button" onclick="submit()">Submit</button>
+    <button type="submit">Login</button>
   </form>
 
-  <script>
+  <script type="module">
+    async function handleSubmit(event) {
+      event.preventDefault();
 
-    function submit() {
-      // Capture user information
-      var firstName = document.getElementById("fname").value;
-      var lastName = document.getElementById("lname").value;
-      var email = document.getElementById("email").value;
+      const email = document.getElementById('emailInput').value;
 
-      // Send an identity event when the user logs in
-      var engage
-      var identityEventData = {
+      // Page View Event
+      const pageViewEvent = {
         channel: "WEB",
-        language: "EN",
-        type: "IDENTITY",
-        currency: "USD",
-        page: "/login",
+        currency: "EUR",
         pointOfSale: "MobileRetail",
-        "identifiers": [{
-          "provider": "BXLP",
-          "id": "123456"
-        }]
-
-
-
+        language: "EN",
+        page: "loginPage",
+        identifiers: [
+          {
+            id: "123456",
+            provider: "BXLP"
+          }
+        ]
       };
 
-      engage.identity(identityEventData);
+      // Login Event
+      const loginEvent = {
+        channel: "WEB",
+        currency: "EUR",
+        pointOfSale: "MobileRetail",
+        language: "EN",
+        page: "login",
+        email,
+        identifiers: [
+          {
+            id: "123456",
+            provider: "BXLP"
+          }
+        ]
+      };
 
-      // Perform the login action
-      // ...
+      const extensionData = {
+        customKey: "customValue"
+      };
 
-      // Notify the user with an alert
-      alert("Logged in successfully!");
+      // Send Page View event to Sitecore CDP
+      await engage.view(pageViewEvent, extensionData);
 
-      // Optionally, redirect to another page after login
-      // window.location.href = "dashboard.html";
+      // Send IDENTITY event to Sitecore CDP
+      await engage.identity(loginEvent, extensionData);
     }
-
-
   </script>
 
 
