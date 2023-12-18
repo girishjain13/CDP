@@ -95,7 +95,7 @@
 
     <script>
       // Initialize the SDK
-      const sdk = new SitecoreCDP();
+
 
       document.getElementById('submitButton').addEventListener('click', function (event) {
         event.preventDefault(); // Prevent the form from being submitted normally
@@ -123,7 +123,7 @@
         };
 
         // Send the event data
-        sdk.engage('Identify', eventData);
+        engage.createEvent('Identify', eventData);
 
         // Show an alert
         alert('Engage function called with event data.');
