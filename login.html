@@ -87,7 +87,8 @@
 
   <script>
     function submit() {
-      let email = "paul.bonilla@test.com"
+      let email = "paul.bonilla@test.com";
+      alert(email);
       let event = {
         channel: "WEB",
         language: "EN",
@@ -103,7 +104,7 @@
           }],
       };
       engage.identity(event);
-
+      alert("Identity Event submitted");
     }
 
 
