@@ -71,6 +71,7 @@
       page: "login",
       pointOfSale: "MobileRetail"
     };
+    engage.pageView(eventData);
 
   </script>
 
@@ -99,8 +100,7 @@
           {
             provider: "email",
             id: email,
-          },
-        ],
+          }],
       };
       engage.identity(event);
 
