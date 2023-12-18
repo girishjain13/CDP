@@ -82,31 +82,50 @@
     <input type="text" id="lname" name="lname"><br>
     <label for="email">Email ID:</label><br>
     <input type="email" id="email" name="email"><br><br>
-    <button onclick="submit()">Login</button>
+    <button type="submit">Login</button>
 
   </form>
 
   <script>
+    function sendIdentityEvent() {
+      // Identity event details
+      var identityEvent = {
+        "channel": "WEB",
+        "type": "IDENTITY",
+        "language": "EN",
+        "currency": "USD",
+        "page": "login",
+        "pos": "MobileRetail",
 
-    function submit() {
-
-
-      let event = {
-        channel: "WEB",
-        language: "EN",
-        currency: "USD",
-        page: "Login",
-        pos: window.Engage.settings.pointOfSale,
-        browser_id: window.Engage.getBrowserId(),
-        email: email,
-        identifiers: [
+        "identifiers": [
           {
-            provider: "email",
-            id: email,
-          }],
+            "id": "123456",
+            "provider": "BXLP"
+          }
+        ],
+        "email": document.getElementById("email").value,
+        "firstname": document.getElementById("firstName").value,
+        "lastname": document.getElementById("lastName").value
       };
-      engage.identity(event);
-      alert("Identity Event submitted");
+
+      // Log the identity event details (you might want to send this to your server)
+      console.log(identityEvent);
+
+      // You can send the identity event to your server or perform other actions here
+      // Example: Use fetch to send the data to the server
+      // fetch("/your-server-endpoint", {
+      //     method: "POST",
+      //     body: JSON.stringify(identityEvent),
+      //     headers: {
+      //         "Content-Type": "application/json"
+      //     }
+      // })
+      // .then(response => response.json())
+      // .then(data => console.log(data))
+      // .catch(error => console.error("Error:", error));
+
+      // Prevent the form from submitting (you can remove this line if you want the form to submit)
+      return false;
     }
 
 
