@@ -90,42 +90,44 @@
       <input type="text" id="lastName" name="lastName"><br>
       <label for="email">Email:</label><br>
       <input type="email" id="email" name="email"><br>
-      <input type="submit" value="Submit">
+      <input type="submit" onlcick="submit()" value="Submit">
     </form>
     <script src="sitecore-engage.js"></script>
 
     <script>
-      var Engage;
-      document.getElementById('loginForm').addEventListener('submit', function (e) {
-        e.preventDefault();
+      function submti() {
+        var Engage;
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+          e.preventDefault();
 
-        let firstName = document.getElementById('firstName').value;
-        let lastName = document.getElementById('lastName').value;
-        let email = document.getElementById('email').value;
+          let firstName = document.getElementById('firstName').value;
+          let lastName = document.getElementById('lastName').value;
+          let email = document.getElementById('email').value;
 
-        let event = {
-          channel: "WEB",
-          language: "EN",
-          type: "IDENTITY",
-          currency: "USD",
-          page: "Login",
-          pos: "MobileRetail",
-          browser_id: window.Engage.getBrowserId(),
-          email: email,
-          identifiers: [
-            {
-              provider: "email",
-              id: email,
+          let event = {
+            channel: "WEB",
+            language: "EN",
+            type: "IDENTITY",
+            currency: "USD",
+            page: "Login",
+            pos: "MobileRetail",
+            browser_id: window.Engage.getBrowserId(),
+            email: email,
+            identifiers: [
+              {
+                provider: "email",
+                id: email,
+              },
+            ],
+            user: {
+              firstName: firstName,
+              lastName: lastName,
             },
-          ],
-          user: {
-            firstName: firstName,
-            lastName: lastName,
-          },
-        };
+          };
 
-        engage.identity(event);
-      });
+          engage.identity(event);
+        });
+      }
     </script>
 
 
