@@ -1,13 +1,13 @@
 async function sendIdentityEvent() {
   var settings = {
-    clientKey: "<client_key_PLACEHOLDER>",
-    targetURL: "<stream_api_target_endpoint_PLACEHOLDER>",
-    pointOfSale: "<point_of_sale_PLACEHOLDER>",
-    cookieDomain: "<cookie_domain_PLACEHOLDER>",
-    cookieExpiryDays: 365,
-    forceServerCookieMode: false,
-    includeUTMParameters: true,
-    webPersonalization: false
+    clientKey: "sndbxus06p9cxhoqoiowkr1sbq5casz3",
+        targetURL: "https://api-engage-us.sitecorecloud.io",
+        pointOfSale: "MobileRetail",
+        cookieDomain: ".gjsitecorecdp.vercel.app",
+        cookieExpiryDays: 365,
+        forceServerCookieMode: false,
+        includeUTMParameters: true,
+        webPersonalization: false /* boolean or object. See Settings object for all options. Default: false */
   };
   var engage = await window.Engage.init(settings);
 
@@ -16,9 +16,9 @@ async function sendIdentityEvent() {
     "channel": "WEB",
     "type": "IDENTITY",
     "language": "EN",
-    "currency": "EUR",
+    "currency": "USD",
     "page": "/login",
-    "pos": "website.com",
+    "pos": "MobileRetail",
     "email": document.getElementById('email').value,
     "firstName": document.getElementById('fname').value,
     "lastName": document.getElementById('lname').value
