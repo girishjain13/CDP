@@ -77,17 +77,35 @@
 
   <h2>Login Form</h2>
 
-  <form id="loginForm" onsubmit="event.preventDefault(); sendIdentityEvent();">
-    <label for="fname">First Name:</label><br>
-    <input type="text" id="fname" name="fname"><br>
-    <label for="lname">Last Name:</label><br>
-    <input type="text" id="lname" name="lname"><br>
-    <label for="email">Email:</label><br>
-    <input type="email" id="email" name="email"><br><br>
-    <input type="submit" value="Submit">
-  </form>
 
-  <script src="main.js"></script>
+  <!DOCTYPE html>
+  <html>
+
+  <body>
+
+    <h2>Login Form</h2>
+
+    <form id="loginForm">
+      <label for="fname">First Name:</label><br>
+      <input type="text" id="fname" name="fname" required><br>
+      <label for="lname">Last Name:</label><br>
+      <input type="text" id="lname" name="lname" required><br>
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email" required><br><br>
+      <input type="submit" value="Submit">
+    </form>
+
+    <script src="main.js"></script>
+    <script>
+      document.getElementById('loginForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        sendIdentityEvent();
+      });
+    </script>
+
+  </body>
+
+  </html>
 
 
 
