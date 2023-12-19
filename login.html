@@ -75,53 +75,52 @@
 
   </script>
 
-  <form id="myForm">
-    <label>
-      <span>Email:</span>
-      <input type="text" id="email" />
-    </label>
-    <input type="button" onclick="submit()" value="Subscirbe" />
-
+  <form id="loginForm">
+    <div>
+      <label for="fname">First Name:</label><br>
+      <input type="text" id="fname" name="fname"><br>
+    </div>
+    <div>
+      <label for="lname">Last Name:</label><br>
+      <input type="text" id="lname" name="lname"><br>
+    </div>
+    <div>
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email"><br>
+    </div>
+    <div>
+      <input type="submit" value="Submit">
+    </div>
   </form>
 
   <script>
-    // Initialize the SDK
-    function submit() {
-      var identityEvent = {
-        "channel": "WEB",
-        "type": "IDENTITY",
-        "language": "EN",
-        "currency": "USD",
-        "page": "login",
-        "pos": "MobileRetail",
-        "browser_id": engage.getID(),
-        "email": $('#email').val(),
-        "title": "Mr",
-        "firstname": $('#firstname').val(),
-        "lastname": $('#lastname').val(),
-        "gender": "male",
-        "dob": "1980-01-23T00:00",
-        "passport_no": "IR123456",
-        "mobile": "+3531234567",
-        "phone": "+353123456",
-        "street": ["Ashford House", "Tara Street", "Dublin 2"],
-        "city": "Vadodara",
-        "country": "India",
-        "postal_code": "390021",
-        "propensitytopirchase": "0.5",
-        identifiers: [{
-          "provider": "BXLP",
-          "id": "56789"
-        }]
+    document.getElementById('loginForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const fname = document.getElementById('fname').value;
+      const lname = document.getElementById('lname').value;
+      const email = document.getElementById('email').value;
+
+      const eventData = {
+        channel: "WEB",
+        currency: "USD",
+        pointOfSale: "MobileRetail",
+        language: "EN",
+        page: "login",
+        email: email,
+        firstName: fname,
+        lastName: lname,
+        identifiers: [
+          {
+            id: "123456",
+            provider: "BXLP"
+          }
+        ]
       };
 
-      // Invoke event create
-      // (<event msg>, <callback function>, <format>)
-      engage.eventCreate(identityEvent, function (data) { }, 'json');
-
-
-      alert('Successfully Logged In.')
-    };
+      Engage.identity(eventData);
+    });
+  </script>
 
 
   </script>
