@@ -75,58 +75,24 @@
 
   </script>
 
-  <form id="loginForm">
-    <div>
-      <label for="fname">First Name:</label><br>
-      <input type="text" id="fname" name="fname"><br>
-    </div>
-    <div>
-      <label for="lname">Last Name:</label><br>
-      <input type="text" id="lname" name="lname"><br>
-    </div>
-    <div>
-      <label for="email">Email:</label><br>
-      <input type="email" id="email" name="email"><br>
-    </div>
-    <div>
-      <input type="submit" onclick=submit() value="Submit">
-    </div>
+  <h2>Login Form</h2>
+
+  <form id="loginForm" onsubmit="event.preventDefault(); sendIdentityEvent();">
+    <label for="fname">First Name:</label><br>
+    <input type="text" id="fname" name="fname"><br>
+    <label for="lname">Last Name:</label><br>
+    <input type="text" id="lname" name="lname"><br>
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email"><br><br>
+    <input type="submit" value="Submit">
   </form>
 
-  <script>
-    src = "sitecore-engage.js"
-    var engage
-
-    document.getElementById('loginForm').addEventListener('submit', function (event) {
-      event.preventDefault();
-
-      const fname = document.getElementById('fname').value;
-      const lname = document.getElementById('lname').value;
-      const email = document.getElementById('email').value;
-
-      const eventData = {
-        channel: "WEB",
-        currency: "USD",
-        pointOfSale: "MobileRetail",
-        language: "EN",
-        page: "login",
-        email: email,
-        firstName: fname,
-        lastName: lname,
-        identifiers: [
-          {
-            id: "123456",
-            provider: "BXLP"
-          }
-        ]
-      };
-
-      engage.identity(eventData);
-    });
-  </script>
+  <script src="main.js"></script>
 
 
-  </script>
+
+
+
 </body>
 
 
