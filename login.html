@@ -83,25 +83,50 @@
 
   <body>
 
-    <h2>Login Form</h2>
-
     <form id="loginForm">
-      <label for="fname">First Name:</label><br>
-      <input type="text" id="fname" name="fname" required><br>
-      <label for="lname">Last Name:</label><br>
-      <input type="text" id="lname" name="lname" required><br>
+      <label for="firstName">First Name:</label><br>
+      <input type="text" id="firstName" name="firstName"><br>
+      <label for="lastName">Last Name:</label><br>
+      <input type="text" id="lastName" name="lastName"><br>
       <label for="email">Email:</label><br>
-      <input type="email" id="email" name="email" required><br><br>
+      <input type="email" id="email" name="email"><br>
       <input type="submit" value="Submit">
     </form>
 
-    <script src="main.js"></script>
     <script>
+      var engage;
       document.getElementById('loginForm').addEventListener('submit', function (e) {
         e.preventDefault();
-        sendIdentityEvent();
+
+        let firstName = document.getElementById('firstName').value;
+        let lastName = document.getElementById('lastName').value;
+        let email = document.getElementById('email').value;
+
+        let event = {
+          channel: "WEB",
+          language: "EN",
+          currency: "USD",
+          page: "Login",
+          pos: window.Engage.settings.pointOfSale,
+          browser_id: window.Engage.getBrowserId(),
+          email: email,
+          identifiers: [
+            {
+              provider: "email",
+              id: email,
+            },
+          ],
+          user: {
+            firstName: firstName,
+            lastName: lastName,
+          },
+        };
+
+        engage.identity(event);
       });
     </script>
+
+
 
   </body>
 
