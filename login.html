@@ -95,36 +95,37 @@
     <script src="sitecore-engage.js"></script>
 
     <script>
+      function submit() {
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+          e.preventDefault();
 
-      document.getElementById('loginForm').addEventListener('submit', function (e) {
-        e.preventDefault();
+          let firstName = document.getElementById('firstName').value;
+          let lastName = document.getElementById('lastName').value;
+          let email = document.getElementById('email').value;
 
-        let firstName = document.getElementById('firstName').value;
-        let lastName = document.getElementById('lastName').value;
-        let email = document.getElementById('email').value;
-
-        let event = {
-          channel: "WEB",
-          language: "EN",
-          currency: "USD",
-          page: "login",
-          pos: "MobileRetail",
-          browser_id: window.Engage.getBrowserId(),
-          email: email,
-          identifiers: [
-            {
-              provider: "email",
-              id: email,
+          let event = {
+            channel: "WEB",
+            language: "EN",
+            currency: "USD",
+            page: "login",
+            pos: "MobileRetail",
+            browser_id: window.Engage.getBrowserId(),
+            email: email,
+            identifiers: [
+              {
+                provider: "email",
+                id: email,
+              },
+            ],
+            user: {
+              firstName: firstName,
+              lastName: lastName,
             },
-          ],
-          user: {
-            firstName: firstName,
-            lastName: lastName,
-          },
-        };
+          };
 
-        engage.identity(event);
-      });
+          engage.identity(event);
+        });
+      };
     </script>
 
 
