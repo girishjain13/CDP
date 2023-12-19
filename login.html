@@ -95,7 +95,7 @@
 
   <script>
     src = "sitecore-engage.js"
-    var eengage
+    var engage
 
     document.getElementById('loginForm').addEventListener('submit', function (event) {
       event.preventDefault();
@@ -121,7 +121,7 @@
         ]
       };
 
-      Engage.identity(eventData);
+      engage.identity(eventData);
     });
   </script>
 
