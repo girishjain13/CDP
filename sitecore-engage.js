@@ -1,6 +1,7 @@
 
 // Initialize the engage variable
 var engage = undefined;
+var Enageg = undefined;
 
 // Create and inject the <script> tag into the HTML
 var s = document.createElement("script");
