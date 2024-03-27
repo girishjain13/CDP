@@ -28,7 +28,7 @@ form.addEventListener('submit', function(event) {
         language: "EN",
         currency: "EUR",
         page: "login",
-        pos: "Personalization",
+        pos: "MobileRetail",
         identifiers: [
             {
                 id: email,
