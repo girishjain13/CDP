@@ -3,7 +3,7 @@ Boxever.init({
     "client_key": "sndbxus06p9cxhoqoiowkr1sbq5casz3",
     "target": "api.boxever.com/v1.2",
     "session": Boxever.generateSessionID(),
-    "pointOfSale": "web",
+    "pointOfSale": "MobileRetail",
     "channel": "WEB"
 });
 
