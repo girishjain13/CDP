@@ -1,6 +1,6 @@
 // Initialize Boxever
 Boxever.init({
-    "client_key": "YOUR_CLIENT_KEY",
+    "client_key": "sndbxus06p9cxhoqoiowkr1sbq5casz3",
     "target": "api.boxever.com/v1.2",
     "session": Boxever.generateSessionID(),
     "pointOfSale": "web",
