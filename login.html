@@ -46,7 +46,34 @@
   </style>
 </head>
 
+<header>
+  <h1>Your SnapCart</h1>
+  <p>Swip,Shop, Slay</p>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="phones.html">Phones</a>
+    <a href="accessories.html">Accessories</a>
+    <a href="login.html">Login</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
 
+<body>
+  <script src="sitecore-engage.js"></script>
+  <script>
+    var engage
+    var eventData = {
+      channel: "WEB",
+      language: "EN",
+      currency: "USD",
+      page: "phones",
+      pointOfSale: "MobileRetail"
+    };
+    // Send a VIEW event
+    engage.pageView(eventData);
+
+  </script>
+</body>
 
 
 <body>
