@@ -94,38 +94,6 @@
     </form>
     <script src="sitecore-engage.js"></script>
 
-    <script>
-
-      document.getElementById('loginForm').addEventListener('submit', submit) {
-        function submit() {
-          event.preventDefault();
-
-          let firstName = document.getElementById('firstName').value;
-          let lastName = document.getElementById('lastName').value;
-          let email = document.getElementById('email').value;
-
-          let event = {
-            channel: "WEB",
-            language: "EN",
-            type: "IDENTITY",
-            currency: "USD",
-            page: "login",
-            pos: "MobileRetail",
-            browser_id: "2335a9c5-9613-4878-9beb-01c62d9aed22",
-
-            identifiers: [
-              {
-                provider: "BXLP",
-                id: "56789"
-
-              }]
-          };
-
-          engage.eventCreate(event);
-        };
-        alert('Successfully Logged In.')
-      }
-    </script>
 
 
 
@@ -144,12 +112,40 @@
 <footer>
   <p>&copy; 2023 Your Website. All rights reserved.</p>
 </footer>
-document.getElementById('loginForm').addEventListener('submit', submit);
+<script>
 
-function submit() {
-// ... rest of your code
-}
+  function submit() {
+    document.getElementById('loginForm').addEventListener('submit', submit) {
+      event.preventDefault();
 
+      let firstName = document.getElementById('firstName').value;
+      let lastName = document.getElementById('lastName').value;
+      let email = document.getElementById('email').value;
+
+      let event = {
+        channel: "WEB",
+        language: "EN",
+        type: "IDENTITY",
+        currency: "USD",
+        page: "login",
+        pos: "MobileRetail",
+        browser_id: "2335a9c5-9613-4878-9beb-01c62d9aed22",
+
+        identifiers: [
+          {
+            provider: "BXLP",
+            id: "56789"
+
+          }]
+      };
+
+      engage.eventCreate(event);
+    };
+    alert('Successfully Logged In.')
+  }
+
+
+</script>
 
 
 </html>
