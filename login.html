@@ -69,19 +69,23 @@
     <input type="email" id="email" name="email" required><br><br>
     <button type="submit" onclick="submitForm()">Submit</button>
   </form>
-  <script>
-    var engage
-    var eventData = {
-      channel: "WEB",
-      language: "EN",
-      currency: "USD",
-      page: "Login",
-      pointOfSale: "MobileRetail"
-    };
-    // Send a VIEW event
-    engage.pageView(eventData);
 
-  </script>
+  <body>
+    <script src="sitecore-engage.js"></script>
+    <script>
+      var engage
+      var eventData = {
+        channel: "WEB",
+        language: "EN",
+        currency: "USD",
+        page: "login",
+        pointOfSale: "MobileRetail"
+      };
+      // Send a VIEW event
+      engage.pageView(eventData);
+
+    </script>
+  </body>
 
   <script>
     function submitForm() {
