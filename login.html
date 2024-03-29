@@ -99,39 +99,28 @@
 
       // Display success message
       alert("Thank you, " + firstName + " " + lastName + ". Your information has been submitted successfully!");
+      var identityEvent = {
+        "channel": "WEB",
+        "type": "IDENTITY",
+        "language": "EN",
+        "currency": "EUR",
+        "page": "login",
+        "pos": "MobileRetail",
+        "browser_id": "a38b230c-11eb-4cf9-8d5d-274e9f344925",
+        "identifiers": [
+          {
+            "id": "123456",
+            "provider": "BXLP"
+          }
+        ],
+        "email": "jane.doe@myretailsite.com",
+        "firstname": "Jane",
+        "lastname": "Doe"
+      };
+      // Send the identity event to Sitecore CDP
+      // You can customize this part based on your implementation
+      console.log("Sending identity event:", identityEvent);
 
-      _boxeverq.push(function () {
-        var identityEvent = {
-          "channel": "WEB",
-          "type": "IDENTITY",
-          "language": "EN",
-          "currency": "INR",
-          "page": "login",
-          "pos": "MobileRetail",
-          "browser_id": Boxever.getID(),
-          "email": email,
-          "title": "Mr",
-          "firstname": firstName,
-          "lastname": lastName,
-          "gender": "male",
-          "dob": "1980-01-23T00:00",
-          "passport_no": "IR123456",
-          "mobile": "+3531234567",
-          "phone": "+353123456",
-          "street": ["Ashford House", "Tara Street", "Dublin 2"],
-          "city": "Vadodara",
-          "country": "India",
-          "postal_code": "390021",
-          "propensitytopirchase": "0.5",
-          "identifiers": [{
-            "provider": "BXLP",
-            "id": "56789"
-          }]
-        };
-
-        // Invoke event create
-        Boxever.eventCreate(identityEvent, function (data) { }, 'json');
-      });
       // You can optionally clear the form after successful submission
       // document.getElementById("loginForm").reset();
     }
