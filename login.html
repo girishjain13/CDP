@@ -91,14 +91,23 @@
       const firstName = document.getElementById("firstName").value;
       const lastName = document.getElementById("lastName").value;
       const email = document.getElementById("email").value;
+
+
+
+      // Simulate form processing (replace with your actual logic)
+      console.log("Processing data...");
+
+      // Display success message
+      alert("Thank you, " + firstName + " " + lastName + ". Your information has been submitted successfully!");
+
       _boxeverq.push(function () {
         var identityEvent = {
           "channel": "WEB",
           "type": "IDENTITY",
           "language": "EN",
           "currency": "INR",
-          "page": "/login",
-          "pos": "@HelloSitecoreCDP.Helpers.ConfigHelper.POS",
+          "page": "login",
+          "pos": "MobileRetail",
           "browser_id": Boxever.getID(),
           "email": email,
           "title": "Mr",
@@ -123,14 +132,6 @@
         // Invoke event create
         Boxever.eventCreate(identityEvent, function (data) { }, 'json');
       });
-
-
-      // Simulate form processing (replace with your actual logic)
-      console.log("Processing data...");
-
-      // Display success message
-      alert("Thank you, " + firstName + " " + lastName + ". Your information has been submitted successfully!");
-
       // You can optionally clear the form after successful submission
       // document.getElementById("loginForm").reset();
     }
