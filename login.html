@@ -73,86 +73,70 @@
     engage.pageView(eventData);
 
   </script>
-</body>
-
-
-<body>
-
-  <!-- Your HTML content for login form -->
-  <form id="loginForm">
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email"><br><br>
-    <label for="firstname">First Name:</label>
-    <input type="text" id="firstname" name="firstname"><br><br>
-    <label for="lastname">Last Name:</label>
-    <input type="text" id="lastname" name="lastname"><br><br>
-    <!-- Other fields as needed for login -->
-    <button type="submit">Login</button>
-  </form>
-
-  <!-- Your JavaScript code -->
   <script>
-    $(document).ready(function () {
-      // Handle form submission
-      $('#loginForm').submit(function (event) {
-        event.preventDefault(); // Prevent default form submission
-        var data = {
-          // Collect data from form fields
-          email: $('#email').val(),
-          firstname: $('#firstname').val(),
-          lastname: $('#lastname').val(),
-          // Add other data as needed
+    function submit() {
+      // Capture user information
+      var firstName = $('#firstname').val();
+      var lastName = $('#lastname').val();
+      var email = $('#email').val();
+
+      // Your custom real-time identity event JavaScript code
+      _boxeverq.push(function () {
+        var identityEvent = {
+          "channel": "WEB",
+          "type": "IDENTITY",
+          "language": "EN",
+          "currency": "INR",
+          "page": "/login",
+          "pos": "@HelloSitecoreCDP.Helpers.ConfigHelper.POS",
+          "browser_id": Boxever.getID(),
+          "email": email,
+          "title": "Mr",
+          "firstname": firstName,
+          "lastname": lastName,
+          "gender": "male",
+          "dob": "1980-01-23T00:00",
+          "passport_no": "IR123456",
+          "mobile": "+3531234567",
+          "phone": "+353123456",
+          "street": ["Ashford House", "Tara Street", "Dublin 2"],
+          "city": "Vadodara",
+          "country": "India",
+          "postal_code": "390021",
+          "propensitytopirchase": "0.5",
+          "identifiers": [{
+            "provider": "BXLP",
+            "id": "56789"
+          }]
         };
 
-        // Send POST request to "/Auth/Login"
-        $.post("/Auth/Login", { loginModel: data })
-          .done(function () {
-            // Success callback
-            _boxeverq.push(function () {
-              var identityEvent = {
-                "channel": "WEB",
-                "type": "IDENTITY",
-                "language": "EN",
-                "currency": "INR",
-                "page": "/login",
-                "pos": "@HelloSitecoreCDP.Helpers.ConfigHelper.POS",
-                "browser_id": Boxever.getID(),
-                "email": data.email,
-                "title": "Mr",
-                "firstname": data.firstname,
-                "lastname": data.lastname,
-                "gender": "male",
-                "dob": "1980-01-23T00:00",
-                "passport_no": "IR123456",
-                "mobile": "+3531234567",
-                "phone": "+353123456",
-                "street": ["Ashford House", "Tara Street", "Dublin 2"],
-                "city": "Vadodara",
-                "country": "India",
-                "postal_code": "390021",
-                "propensitytopirchase": "0.5",
-                "identifiers": [{
-                  "provider": "BXLP",
-                  "id": "56789"
-                }]
-              };
-
-              // Invoke event create
-              // (<event msg>, <callback function>, <format>)
-              Boxever.eventCreate(identityEvent, function (data) { }, 'json');
-            });
-          })
-          .fail(function () {
-            // Error callback
-            console.error("Login failed.");
-          });
+        // Invoke event create
+        Boxever.eventCreate(identityEvent, function (data) { }, 'json');
       });
-    });
+
+      // Alert when successfully logged in
+      alert('Successfully Logged In.');
+
+      return false;
+    }
   </script>
+
+
+  <form id="loginForm">
+    <!-- Your form fields go here -->
+    <label for="firstname">First Name:</label><br>
+    <input type="text" id="firstname" name="firstname"><br>
+    <label for="lastname">Last Name:</label><br>
+    <input type="text" id="lastname" name="lastname"><br>
+    <label for="email">Email ID:</label><br>
+    <input type="email" id="email" name="email"><br><br>
+    <!-- Add other form fields as needed -->
+    <button type="button" onclick="submit()">Login</button>
+  </form>
+
 
 </body>
 
-</html>
 
 
 </script>
