@@ -129,7 +129,7 @@
       currency: "EUR",
       page: "login",
       pointOfSale: "MobileRetail",
-      browser_id: Boxever.getID(),
+      browser_id: window.Boxever.getID(),
       identifiers: [
         {
           id: "123456",
@@ -138,7 +138,8 @@
       ],
       email: email,
       firstname: firstName,
-      lastname: lastName
+      lastname: lastName,
+
     };
 
     // Send the identity event to Sitecore CDP
