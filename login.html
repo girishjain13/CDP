@@ -130,12 +130,12 @@
       page: "login",
       pointOfSale: "MobileRetail",
       browser_id: window.Boxever.getID(),
-      identifiers: [
-        {
-          id: "123456",
-          provider: "BXLP"
-        }
-      ],
+      identifiers:
+      {
+        id: "123456",
+        provider: "BXLP"
+      },
+
       email: email,
       firstname: firstName,
       lastname: lastName,
@@ -144,8 +144,8 @@
 
     // Send the identity event to Sitecore CDP
     // You can customize this part based on your implementation
-    engage.identity(identityEvent);
-    alert("Thank you, " + firstName + " " + lastName + ". Your information has been submitted successfully!");
+    engage.identity(identityEvent),
+      alert("Thank you, " + firstName + " " + lastName + ". Your information has been submitted successfully!");
     // You can optionally clear the form after successful submission
     // document.getElementById("loginForm").reset();
 
