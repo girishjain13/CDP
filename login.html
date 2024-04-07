@@ -83,7 +83,7 @@
     <button type="submit" onclick="submitForm()">Submit</button>
   </form>
   <script>
-    function submitForm() {
+    _boxeverq.push(function submitForm() {
       // Prevent default form submission behavior
       event.preventDefault();
 
@@ -108,6 +108,7 @@
         currency: "EUR",
         page: "login",
         pos: "MobileRetail",
+        browser_id: Boxever.getId(),
         identifiers: [
           {
             id: "123456",
@@ -124,7 +125,7 @@
 
       // You can optionally clear the form after successful submission
       // document.getElementById("loginForm").reset();
-    }
+    });
   </script>
 
 
