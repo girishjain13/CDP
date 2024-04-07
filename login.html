@@ -66,7 +66,7 @@
       channel: "WEB",
       language: "EN",
       currency: "USD",
-      page: "phones",
+      page: "login",
       pointOfSale: "MobileRetail"
     };
     // Send a VIEW event
@@ -119,7 +119,7 @@
       };
       // Send the identity event to Sitecore CDP
       // You can customize this part based on your implementation
-      console.log("Sending identity event:", identityEvent);
+      engage.identityEvent(identityEvent);
 
       // You can optionally clear the form after successful submission
       // document.getElementById("loginForm").reset();
