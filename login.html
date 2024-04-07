@@ -121,32 +121,26 @@
     console.log("Processing data...");
 
     // Display success message
-    _boxeverq.push(function () {
 
-      var identityEvent = {
-        channel: "WEB",
-        type: "IDENTITY",
-        language: "EN",
-        currency: "EUR",
-        page: "login",
-        pointOfSale: "MobileRetail",
-        browser_id: Boxever.getID(),
-        identifiers: [
-          {
-            id: "123456",
-            provider: "BXLP"
-          }
-        ],
-        email: email,
-        firstname: firstName,
-        lastname: lastName
-      };
-      identityEvent = Boxever.addUTMParams(identityEvent);
-      // Invoke event create
-      // (<event msg>, <callback function>, <format>)
-      Boxever.eventCreate(identityEvent, function (data) { }, 'json');
+    var identityEvent = {
+      channel: "WEB",
+      type: "IDENTITY",
+      language: "EN",
+      currency: "EUR",
+      page: "login",
+      pointOfSale: "MobileRetail",
+      browser_id: Boxever.getID(),
+      identifiers: [
+        {
+          id: "123456",
+          provider: "BXLP"
+        }
+      ],
+      email: email,
+      firstname: firstName,
+      lastname: lastName
+    };
 
-    });
     // Send the identity event to Sitecore CDP
     // You can customize this part based on your implementation
     engage.identity(identityEvent);
