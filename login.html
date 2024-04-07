@@ -100,22 +100,22 @@
       // Display success message
       alert("Thank you, " + firstName + " " + lastName + ". Your information has been submitted successfully!");
       var identityEvent = {
-        "channel": "WEB",
-        "type": "IDENTITY",
-        "language": "EN",
-        "currency": "EUR",
-        "page": "login",
-        "pos": "MobileRetail",
-        "browser_id": "a38b230c-11eb-4cf9-8d5d-274e9f344925",
-        "identifiers": [
+        channel: "WEB",
+        type: "IDENTITY",
+        language: "EN",
+        currency: "EUR",
+        page: "login",
+        pos: "MobileRetail",
+        browser_id: "a38b230c-11eb-4cf9-8d5d-274e9f344925",
+        identifiers: [
           {
-            "id": "123456",
-            "provider": "BXLP"
+            id: "123456",
+            provider: "BXLP"
           }
         ],
-        "email": "jane.doe@myretailsite.com",
-        "firstname": "Jane",
-        "lastname": "Doe"
+        email: "jane.doe@myretailsite.com",
+        firstname: "Jane",
+        lastname: "Doe"
       };
       // Send the identity event to Sitecore CDP
       // You can customize this part based on your implementation
