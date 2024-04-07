@@ -92,6 +92,8 @@
       const lastName = document.getElementById("lastName").value;
       const email = document.getElementById("email").value;
 
+      const browserId = uuid.v4();
+
 
 
       // Simulate form processing (replace with your actual logic)
@@ -106,7 +108,7 @@
         currency: "EUR",
         page: "login",
         pos: "MobileRetail",
-        browser_id: Boxever.getID(),
+        browser_id: browserId,
         identifiers: [
           {
             id: "123456",
