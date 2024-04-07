@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@ViewBag.Title - My ASP.NET Application</title>
+  @Styles.Render("~/Content/css")
+  @Scripts.Render("~/bundles/modernizr")
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SnapCart</title>
@@ -47,61 +48,62 @@
       padding: 1em;
     }
   </style>
-<script type="text/javascript">
-        // Define the Boxever queue
-        var _boxeverq = _boxeverq || [];
+  <script type="text/javascript">
+    // Define the Boxever queue
+    var _boxeverq = _boxeverq || [];
 
-        // Define the Boxever settings
-        var _boxever_settings = {
-            client_key: 'sndbxus06p9cxhoqoiowkr1sbq5casz3', // Replace with your client key
-            target: 'https://api-us.boxever.com/v1.2', // Replace with your API target endpoint specific to your data center region
-            cookie_domain: '.hellosccdpgj.com', // Replace with the top level cookie domain of the website that is being integrated e.g ".example.com" and not "www.example.com"
-            javascriptLibraryVersion: '1.4.9', // Replace with the latest Boxever JavaScript library version"
-            pointOfSale: 'Personalization', // Replace with the same point of sale configured in system settings"
-            web_flow_target: 'https://d35vb5cccm4xzp.cloudfront.net', // Replace with path for the Amazon CloudFront CDN for Sitecore Personalize"
-            // Customize the async and defer script loading attributes
-        };
-        // Import the Boxever library asynchronously
-        (function () {
-            var s = document.createElement('script');
-            s.type = 'text/javascript';
-            s.async = true;
-            s.src = 'https://d1mj578wat5n4o.cloudfront.net/boxever-1.4.9.min.js';
-            var x = document.getElementsByTagName('script')[0];
-            x.parentNode.insertBefore(s, x);
-        })();
+    // Define the Boxever settings
+    var _boxever_settings = {
+      client_key: 'sndbxus06p9cxhoqoiowkr1sbq5casz3', // Replace with your client key
+      target: 'https://api-us.boxever.com/v1.2', // Replace with your API target endpoint specific to your data center region
+      cookie_domain: 'gjsitecorecdp.vercel.app', // Replace with the top level cookie domain of the website that is being integrated e.g ".example.com" and not "www.example.com"
+      javascriptLibraryVersion: '1.4.9', // Replace with the latest Boxever JavaScript library version"
+      pointOfSale: 'MobileRetail', // Replace with the same point of sale configured in system settings"
+      web_flow_target: 'https://d35vb5cccm4xzp.cloudfront.net', // Replace with path for the Amazon CloudFront CDN for Sitecore Personalize"
+      // Customize the async and defer script loading attributes
+    };
+    // Import the Boxever library asynchronously
+    (function () {
+      var s = document.createElement('script');
+      s.type = 'text/javascript';
+      s.async = true;
+      s.src = 'https://d1mj578wat5n4o.cloudfront.net/boxever-1.4.9.min.js';
+      var x = document.getElementsByTagName('script')[0];
+      x.parentNode.insertBefore(s, x);
+    })();
 
-        @{
-            var pageURL = string.Format("'{0}'", "/" + ViewBag.Title);
-        }
+    @{
+      var pageURL = string.Format("'{0}'", "/" + ViewBag.Title);
+    }
 
-        // Place an anonymous function in the Boxever queue
+    // Place an anonymous function in the Boxever queue
     _boxeverq.push(function () {
 
-            var viewEvent = {
-                "browser_id": Boxever.getID(),
-                "channel": "WEB",
-                "type": "VIEW",
-                "language": "EN",
-                "currency": "USD",
-                "page": @Html.Raw(pageURL),
-                "pos": "Personalization",
-              "sessionData" :{
-            "deep_link" : @Html.Raw(pageURL),
-            "is_logged_in" :false,
-            "assistance" :false
-                }
+      var viewEvent = {
+        "browser_id": Boxever.getID(),
+        "channel": "WEB",
+        "type": "VIEW",
+        "language": "EN",
+        "currency": "USD",
+        "page": @Html.Raw(pageURL),
+        "pos": "MobileRetail",
+        "sessionData": {
+          "deep_link": @Html.Raw(pageURL),
+          "is_logged_in": false,
+          "assistance": false
+        }
 
-            };
-            //Add UTM params
-            viewEvent = Boxever.addUTMParams(viewEvent);
-            // Invoke event create
-            // (<event msg>, <callback function>, <format>)
-            Boxever.eventCreate(viewEvent, function (data) { }, 'json');
-        });
+      };
+      //Add UTM params
+      viewEvent = Boxever.addUTMParams(viewEvent);
+      // Invoke event create
+      // (<event msg>, <callback function>, <format>)
+      Boxever.eventCreate(viewEvent, function (data) { }, 'json');
+    });
 
-</script>
+  </script>
 </head>
+
 <body>
 
   <header>
@@ -120,64 +122,65 @@
     <!-- Content of each page goes here -->
     <!-- Use placeholders for specific content on each page -->
   </main>
-<img src="https://thumbs.dreamstime.com/z/web-banner-horizontal-template-design-special-offer-mobile-phones-advertising-concept-167469700.jpg" alt="Phone Image">
+  <img
+    src="https://thumbs.dreamstime.com/z/web-banner-horizontal-template-design-special-offer-mobile-phones-advertising-concept-167469700.jpg"
+    alt="Phone Image">
 
   <footer>
-    <p>&copy; 2023 Your Website. All rights reserved.</p> <div class="container body-content">
+    <p>&copy; 2023 Your Website. All rights reserved.</p>
+    <div class="container body-content">
 
-        @if (System.Web.HttpContext.Current.Request.QueryString["debug"] == "1")
-        {
+      @if (System.Web.HttpContext.Current.Request.QueryString["debug"] == "1")
+      {
 
-            System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
-            stringBuilder.Append("<ul>");
-            for (int i = 0; i < Request.Cookies.Count; i++)
-            {
-                if (Request.Cookies[i].Name.StartsWith("bid"))
-                {
-                    stringBuilder.AppendFormat("<li> <strong>Key </strong> {0} : <strong>Value </strong>{1}</li>", Request.Cookies[i].Name, Request.Cookies[i].Value);
+      System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
+      stringBuilder.Append("<ul>");
+        for (int i = 0; i < Request.Cookies.Count; i++) { if (Request.Cookies[i].Name.StartsWith("bid")) {
+          stringBuilder.AppendFormat("<li> <strong>Key </strong> {0} : <strong>Value </strong>{1}</li>",
+          Request.Cookies[i].Name, Request.Cookies[i].Value);
 
-                }
-
-
-            }
-            stringBuilder.AppendFormat("<li> <strong>Key </strong> {0} : <strong>Value </strong>{1}</li>", "Login Status",
-                    System.Web.HttpContext.Current.Session["LOGIN_STATUS"]);
-            stringBuilder.Append("</ul>");
+          }
 
 
-
-            <div class="alert alert-info" role="alert">
-                <h3>Boxever Debug Info </h3> <br />
-                Server Side Info:
-                @Html.Raw(@stringBuilder.ToString())
-                Client Side Info:
-                <div id="bClientDebugInfo"></div>
-            </div>
+          }
+          stringBuilder.AppendFormat("<li> <strong>Key </strong> {0} : <strong>Value </strong>{1}</li>", "Login Status",
+          System.Web.HttpContext.Current.Session["LOGIN_STATUS"]);
+          stringBuilder.Append("</ul>");
 
 
-            <script type="text/javascript">
-                function PrintDebugInfo() {
-                    var infoToPrint = "<ul>";
-                    infoToPrint += "<li><strong>Bucket # : </strong> " + Boxever.bucket_number + "</li>";
-                    infoToPrint += "<li><strong>client_key # : </strong> " + Boxever.client_key + "</li>";
-                    infoToPrint += "<li><strong>cookie_domain # : </strong> " + Boxever.cookie_domain + "</li>";
-                    infoToPrint += "<li><strong>version # : </strong> " + Boxever.version + "</li>";
-                    infoToPrint += "<li><strong>target # : </strong> " + Boxever.target + "</li>";
-                    infoToPrint += "</ul>";
-                    document.getElementById("bClientDebugInfo").innerHTML = infoToPrint;
-                }
 
-                setTimeout(function () { PrintDebugInfo(); }, 3000);
+      <div class="alert alert-info" role="alert">
+        <h3>Boxever Debug Info </h3> <br />
+        Server Side Info:
+        @Html.Raw(@stringBuilder.ToString())
+        Client Side Info:
+        <div id="bClientDebugInfo"></div>
+      </div>
 
 
-            </script>
+      <script type="text/javascript">
+        function PrintDebugInfo() {
+          var infoToPrint = "<ul>";
+          infoToPrint += "<li><strong>Bucket # : </strong> " + Boxever.bucket_number + "</li>";
+          infoToPrint += "<li><strong>client_key # : </strong> " + Boxever.client_key + "</li>";
+          infoToPrint += "<li><strong>cookie_domain # : </strong> " + Boxever.cookie_domain + "</li>";
+          infoToPrint += "<li><strong>version # : </strong> " + Boxever.version + "</li>";
+          infoToPrint += "<li><strong>target # : </strong> " + Boxever.target + "</li>";
+          infoToPrint += "</ul>";
+          document.getElementById("bClientDebugInfo").innerHTML = infoToPrint;
         }
 
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Sitecore CDP Demo Application</p>
-        </footer>
+        setTimeout(function () { PrintDebugInfo(); }, 3000);
+
+
+      </script>
+      }
+
+      @RenderBody()
+      <hr />
+      <footer>
+        <p>&copy; @DateTime.Now.Year - Sitecore CDP Demo Application</p>
+      </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
@@ -186,4 +189,5 @@
   </footer>
 
 </body>
+
 </html>
