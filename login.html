@@ -85,7 +85,7 @@
   </form>
   <script>
 
-    function submit() {
+    function submitForm() {
       var data = {
         Email: $('#email').val()
       };
@@ -96,30 +96,30 @@
           //https://doc.sitecore.com/cdp/en/developers/sitecore-customer-data-platform--data-model-2-1/send-an-identity-event-to-sitecore-cdp.html
           _boxeverq.push(function () {
             var identityEvent = {
-              "channel": "WEB",
-              "type": "IDENTITY",
-              "language": "EN",
-              "currency": "INR",
-              "page": "/login",
-              "pos": "MobileRetail",
-              "browser_id": Boxever.getID(),
-              "email": $('#email').val(),
-              "title": "Mr",
-              "firstname": $('#firstname').val(),
-              "lastname": $('#lastname').val(),
-              "gender": "male",
-              "dob": "1980-01-23T00:00",
-              "passport_no": "IR123456",
-              "mobile": "+3531234567",
-              "phone": "+353123456",
-              "street": ["Ashford House", "Tara Street", "Dublin 2"],
-              "city": "Vadodara",
-              "country": "India",
-              "postal_code": "390021",
-              "propensitytopirchase": "0.5"
-                        "identifiers": [{
-                "provider": "BXLP",
-                "id": "56789"
+              channel: "WEB",
+              type: "IDENTITY",
+              language: "EN",
+              currency: "INR",
+              page: "/login",
+              pos: "MobileRetail",
+              browser_id: Boxever.getID(),
+              email: $('#email').val(),
+              title: "Mr",
+              firstname: $('#firstName').val(),
+              lastname: $('#lastName').val(),
+              gender: "male",
+              dob: "1980-01-23T00:00",
+              passport_no: "IR123456",
+              mobile: "+3531234567",
+              phone: "+353123456",
+              street: ["Ashford House", "Tara Street", "Dublin 2"],
+              city: "Vadodara",
+              country: "India",
+              postal_code: "390021",
+              propensitytopirchase: "0.5"
+                        identifiers: [{
+                provider: "BXLP",
+                id: "56789"
               }]
             };
 
