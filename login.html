@@ -95,7 +95,7 @@
       console.log("Processing data...");
 
       // Display success message
-      alert("Thank you, " + firstName + " " + lastName + ". Your information has been submitted successfully!");
+
 
       var identityEvent = {
         channel: "WEB",
@@ -117,11 +117,13 @@
 
       // Send the identity event to Sitecore CDP
       // You can customize this part based on your implementation
-      engage.identity(identityEvent);
+
 
       // You can optionally clear the form after successful submission
       // document.getElementById("loginForm").reset();
     }
+    alert("Thank you, " + firstName + " " + lastName + ". Your information has been submitted successfully!");
+    engage.identity(identityEvent);
   </script>
 
 
