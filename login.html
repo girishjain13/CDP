@@ -84,43 +84,44 @@
     <button type="submit" onclick="submitForm()">Submit</button>
   </form>
   <script>
+    function submitForm() {
 
-    // Get form data
-    const firstName = document.getElementById("firstName").value;
-    const lastName = document.getElementById("lastName").value;
-    const email = document.getElementById("email").value;
+      // Get form data
+      const firstName = document.getElementById("firstName").value;
+      const lastName = document.getElementById("lastName").value;
+      const email = document.getElementById("email").value;
 
-    // Simulate form processing (replace with your actual logic)
-    console.log("Processing data...");
+      // Simulate form processing (replace with your actual logic)
+      console.log("Processing data...");
 
-    // Display success message
-    alert("Thank you, " + firstName + " " + lastName + ". Your information has been submitted successfully!");
+      // Display success message
+      alert("Thank you, " + firstName + " " + lastName + ". Your information has been submitted successfully!");
 
-    var identityEvent = {
-      channel: "WEB",
-      type: "IDENTITY",
-      language: "EN",
-      currency: "EUR",
-      page: "login",
-      email: email,
-      firstName: firstName,
-      lastName: lastName,
-      pointOfSale: "MobileRetail",
-      browser_id: window.Boxever.getID(),
-      identifiers: [
-        {
-          id: "123456",
-          provider: "BXLP"
-        }]
-    };
+      var identityEvent = {
+        channel: "WEB",
+        type: "IDENTITY",
+        language: "EN",
+        currency: "EUR",
+        page: "login",
+        email: email,
+        firstName: firstName,
+        lastName: lastName,
+        pointOfSale: "MobileRetail",
+        browser_id: window.Boxever.getID(),
+        identifiers: [
+          {
+            id: "123456",
+            provider: "BXLP"
+          }]
+      };
 
-    // Send the identity event to Sitecore CDP
-    // You can customize this part based on your implementation
-    engage.identity(identityEvent);
+      // Send the identity event to Sitecore CDP
+      // You can customize this part based on your implementation
+      engage.identity(identityEvent);
 
-    // You can optionally clear the form after successful submission
-    // document.getElementById("loginForm").reset();
-
+      // You can optionally clear the form after successful submission
+      // document.getElementById("loginForm").reset();
+    }
   </script>
 
 
