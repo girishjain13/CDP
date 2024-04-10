@@ -49,39 +49,7 @@
 
 <body>
   <script src="sitecore-engage.js"></script>
-  <script>
-    var engage
 
-    function addToCart() {
-      const eventData = {
-        channel: "WEB",
-        currency: "USD",
-        pointOfSale: "MobileRetail",
-        language: "EN",
-        page: "productDetails",
-        product: {
-          id: "12345",
-          name: "Samsung Galaxy S21",
-          price: 699.99,
-          quantity: 1
-        },
-        cart: {
-          id: "67890",
-          total: 699.99,
-          items: [
-            {
-              id: "12345",
-              name: "Samsung Galaxy S21",
-              price: 699.99,
-              quantity: 1
-            }
-          ]
-        }
-      };
-
-      engage.event("ADD", eventData);
-    };
-  </script>
 
   <header>
     <!-- Header content -->
@@ -101,6 +69,39 @@
     <p>Price: $699.99</p>
     <!-- Additional details and features can be added here -->
     <button type="button" onclick=addToCart()>Add to Cart</button>
+    <script>
+      var engage
+
+      function addToCart() {
+        const eventData = {
+          channel: "WEB",
+          currency: "USD",
+          pointOfSale: "MobileRetail",
+          language: "EN",
+          page: "productDetails",
+          product: {
+            id: "12345",
+            name: "Samsung Galaxy S21",
+            price: 699.99,
+            quantity: 1
+          },
+          cart: {
+            id: "67890",
+            total: 699.99,
+            items: [
+              {
+                id: "12345",
+                name: "Samsung Galaxy S21",
+                price: 699.99,
+                quantity: 1
+              }
+            ]
+          }
+        };
+
+        engage.event("ADD", eventData);
+      };
+    </script>
   </main>
 </body>
 
