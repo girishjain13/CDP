@@ -61,6 +61,15 @@
     // Send a VIEW event
     // engage.pageView(eventData);
   </script>
+  <main>
+    <!-- Main content of the product detail page -->
+    <h2>Samsung Galaxy S21 - Product Details</h2>
+    <p>6.2-inch Dynamic AMOLED 2X, Exynos 2100/Snapdragon 888, Triple-camera system, One UI 3.1</p>
+    <p>Price: $699.99</p>
+    <!-- Additional details and features can be added here -->
+    <button id="myButton"> Add to Cart </button>
+
+  </main>
   <script>
 
     function add() {
@@ -106,26 +115,9 @@
       //quantity: 1
       // }
       //};
-      console.log("Event called successfully");
-      engage.event("ADD", addEvent);
-      let confirmEvent = {
-        channel: "WEB",
-        language: "EN",
-        type: "COMFIRM",
-        currency: "USD",
-        pointOfSale: "MobileRetail",
-        page: "galaxyS21",
-        pos: window.Engage.settings.pointOfSale,
-        browser_id: window.Engage.getBrowserId(),
-        product: [
-          { item_id: 'shoe_1' }
-        ],
-      };
-      engage.event("CONFIRM", confirmEvent);
-
+      alert("Product added succsefully")
     }
-
-
+    docuemnt.getElementById("myButton").onclick = add;
   </script>
 
   <header>
@@ -139,15 +131,7 @@
     </nav>
   </header>
 
-  <main>
-    <!-- Main content of the product detail page -->
-    <h2>Samsung Galaxy S21 - Product Details</h2>
-    <p>6.2-inch Dynamic AMOLED 2X, Exynos 2100/Snapdragon 888, Triple-camera system, One UI 3.1</p>
-    <p>Price: $699.99</p>
-    <!-- Additional details and features can be added here -->
-    <button onsubmit="add()"> Add to Cart </button>
 
-  </main>
 
 
 </body>
