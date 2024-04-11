@@ -50,16 +50,16 @@
 <body>
   <script src="sitecore-engage.js"></script>
   <script>
-    //var engage
-    // var eventData = {
-    // channel: "WEB",
-    //language: "EN",
-    //currency: "USD",
-    //page: "galaxyS21",
-    //pointOfSale: "MobileRetail"
-    //};
+    var engage
+    var eventData = {
+      channel: "WEB",
+      language: "EN",
+      currency: "USD",
+      page: "galaxyS21",
+      pointOfSale: "MobileRetail"
+    };
     // Send a VIEW event
-    // engage.pageView(eventData);
+    engage.pageView(eventData);
   </script>
   <main>
     <!-- Main content of the product detail page -->
@@ -93,7 +93,6 @@
       };
       let addEvent = {
         type: "ADD",
-        browser_id: window.Engage.getBrowserId(),
         channel: "WEB",
         language: "EN",
         currency: "USD",
