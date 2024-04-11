@@ -61,29 +61,7 @@
     // Send a VIEW event
     engage.pageView(eventData);
 
-  </script>
 
-  <header>
-    <!-- Header content -->
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="phone-listing-page.html">Phones</a>
-      <a href="accessories.html">Accessories</a>
-      <a href="login.html">Login</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
-
-  <main>
-    <!-- Main content of the product detail page -->
-    <h2>Samsung Galaxy S21 - Product Details</h2>
-    <p>6.2-inch Dynamic AMOLED 2X, Exynos 2100/Snapdragon 888, Triple-camera system, One UI 3.1</p>
-    <p>Price: $699.99</p>
-    <!-- Additional details and features can be added here -->
-    <button onclick="add()"> Add to Cart </button>
-  </main>
-
-  <script>
     var engage
 
     function add() {
@@ -131,7 +109,30 @@
       console.log(addEvent);
       engage.event("ADD", addEvent);
     }
+
+
   </script>
+
+  <header>
+    <!-- Header content -->
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="phone-listing-page.html">Phones</a>
+      <a href="accessories.html">Accessories</a>
+      <a href="login.html">Login</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Main content of the product detail page -->
+    <h2>Samsung Galaxy S21 - Product Details</h2>
+    <p>6.2-inch Dynamic AMOLED 2X, Exynos 2100/Snapdragon 888, Triple-camera system, One UI 3.1</p>
+    <p>Price: $699.99</p>
+    <!-- Additional details and features can be added here -->
+    <button onclick="add()"> Add to Cart </button>
+  </main>
+
 
 </body>
 
