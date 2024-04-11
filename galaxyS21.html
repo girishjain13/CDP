@@ -78,6 +78,7 @@
     <p>Price: $699.99</p>
     <!-- Additional details and features can be added here -->
     <button id="myButton"> Add to Cart </button>
+    <button id="buybutton"> Buy </button>
 
   </main>
   <script>
@@ -115,6 +116,24 @@
       engage.event("ADD", addEvent);
     }
     document.getElementById("myButton").onclick = add;
+  </script>
+
+  <script>
+    function buy() {
+      let confirmEvent = {
+        channel: "WEB",
+        language: "EN",
+        currency: "USD",
+        page: "galaxys21",
+        pos: window.Engage.settings.pointOfSale,
+        product: [
+          { item_id: 'Galaxy S21' }
+        ],
+      };
+      engage.event("CONFIRM", confirmEvent);
+
+    }
+
   </script>
 
 
