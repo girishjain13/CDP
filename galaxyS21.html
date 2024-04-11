@@ -46,6 +46,16 @@
     }
   </style>
 </head>
+<header>
+  <!-- Header content -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="phone-listing-page.html">Phones</a>
+    <a href="accessories.html">Accessories</a>
+    <a href="login.html">Login</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
 
 <body>
   <script src="sitecore-engage.js"></script>
@@ -73,13 +83,13 @@
   <script>
 
     function add() {
-      let name = 'Nike Shoe 1';
-      let type = 'shoe';
-      let item_id = 'shoe_1';
-      let product_id = 'Nike_Shoe';
+      let name = 'Samsung Galaxy S21';
+      let type = 'Mobile Phone';
+      let item_id = 'Galaxy_S21';
+      let product_id = 'Samsung_Galaxy';
       let reference_id = 'ORDER_001';
       let ordered_at = new Date().toISOString();
-      let price = 100;
+      let price = 699;
       let product = {
         name: name,
         type: type,
@@ -100,36 +110,13 @@
         pointOfSale: "MobileRetail",
         product: product,
       };
-      //  const eventData = {
-      //  channel: "WEB",
-      //type: "ADD",
-      //currency: "USD",
-      //pointOfSale: "MobileRetail",
-      // language: "EN",
-      //page: "galaxyS21",
-      //product: {
-      // id: "12345",
-      //name: "Samsung Galaxy S21",
-      //price: 699.99,
-      //quantity: 1
-      // }
-      //};
+
       alert("Product added succsefully")
       engage.event("ADD", addEvent);
     }
     document.getElementById("myButton").onclick = add;
   </script>
 
-  <header>
-    <!-- Header content -->
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="phone-listing-page.html">Phones</a>
-      <a href="accessories.html">Accessories</a>
-      <a href="login.html">Login</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
 
 
 
