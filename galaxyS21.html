@@ -75,6 +75,7 @@
       function addToCart() {
         const eventData = {
           channel: "WEB",
+          type: "ADD",
           currency: "USD",
           pointOfSale: "MobileRetail",
           language: "EN",
@@ -87,7 +88,7 @@
           }
         };
         console.log(eventData);
-        Engage.addEvent(eventData);
+        Engage.event(eventData);
       };
     </script>
   </main>
