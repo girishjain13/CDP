@@ -61,9 +61,6 @@
     // Send a VIEW event
     engage.pageView(eventData);
 
-
-    var engage
-
     function add() {
       let name = 'Nike Shoe 1';
       let type = 'shoe';
@@ -108,6 +105,19 @@
       //};
       console.log(addEvent);
       engage.event("ADD", addEvent);
+      let confirmEvent = {
+        channel: "WEB",
+        language: "EN",
+        currency: "USD",
+        page: "galaxyS21",
+        pos: window.Engage.settings.pointOfSale,
+        browser_id: window.Engage.getBrowserId(),
+        product: [
+          { item_id: 'shoe_1' }
+        ],
+      };
+      engage.event("CONFIRM", confirmEvent);
+
     }
 
 
