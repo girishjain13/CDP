@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+ body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 1em;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-around;
+      background-color: #444;
+      padding: 0.5em;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 1em;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+        .progress-bar {
+            width: 100%;
+            background-color: #f3f3f3;
+            padding: 3px;
+            border-radius: 3px;
+        }
+        .progress-bar div {
+            height: 20px;
+            background-color: #4caf50;
+            width: 0;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<header>
+  <!-- Header content -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="phone-listing-page.html">Phones</a>
+    <a href="accessories.html">Accessories</a>
+    <a href="login.html">Login</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+<body>
+    <h2>Order Confirmation Page</h2>
+    <p>Your order has been confirmed and is being processed. Here is the current status:</p>
+    <div class="progress-bar">
+        <div id="progress"></div>
+    </div>
+    <br>
+    <button onclick="updateProgress()">Update Progress</button>
+
+    <script>
+        var stages = ['Ordered', 'Dispatched', 'Delivered'];
+        var currentStage = 0;
+
+        function updateProgress() {
+            if (currentStage < stages.length) {
+                var progressBar = document.getElementById('progress');
+                progressBar.style.width = ((currentStage + 1) / stages.length) * 100 + '%';
+                progressBar.innerHTML = stages[currentStage++];
+            }
+        }
+    </script>
+</body>
+</html>
