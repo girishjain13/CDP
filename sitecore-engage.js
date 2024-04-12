@@ -22,7 +22,7 @@ s.addEventListener("load", async () => {
         cookieExpiryDays: 365,
         forceServerCookieMode: false,
         includeUTMParameters: true,
-        webPersonalization: false /* boolean or object. See Settings object for all options. Default: false */
+        webPersonalization: true /* boolean or object. See Settings object for all options. Default: false */
     };
     engage = await window.Engage.init(settings);
           
