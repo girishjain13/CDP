@@ -43,6 +43,7 @@
       padding: 1em;
     }
   </style>
+
 </head>
 
 <body>
@@ -81,6 +82,21 @@
         // Send a VIEW event
         engage.pageView(eventData);
 
+      </script>
+
+      <script>
+        const personalization = {
+          channel: "WEB",
+          currency: "EUR",
+          pointOfSale: "MobileRetail",
+          friendlyId: "mobileretailhomepage",
+          // guest identifier:
+          identifier: {
+            id: email,
+            provider: "email"
+          }
+        };
+        engage.personalize(personzalization)
       </script>
     </body>
 
