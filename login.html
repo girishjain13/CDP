@@ -123,9 +123,24 @@
       // You can optionally clear the form after successful submission
       alert("Thank you, " + firstName + " " + lastName + ". Your information has been submitted successfully!");
     }
-
-
   </script>
+
+  <script>
+    const personalization = {
+      clientKey: 'sndbxus06p9cxhoqoiowkr1sbq5casz3',
+      channel: "WEB",
+      currency: "EUR",
+      pointOfSale: "MobileRetail",
+      friendlyId: "mobileretailhomepage",
+      // guest identifier:
+      identifier: {
+        id: email,
+        provider: "email"
+      }
+    };
+    engage.personalize(personzalization)
+  </script>
+
 
 
 
